@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Empty from '../component/empty.vue'
-import Comment from '../component/comment.vue'
+import Comment from '../component/comment/comment.vue'
 
 Vue.use(VueRouter)
 

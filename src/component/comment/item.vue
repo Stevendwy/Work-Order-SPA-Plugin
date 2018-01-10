@@ -1,6 +1,6 @@
 <template lang="pug">
-  z-page.comment(title="评论")
-
+  .item
+    span test
 </template>
 
 <script>
@@ -10,8 +10,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-.comment {
-  width: 320px;
-  height: 480px;
+.item {
+  min-height: 120px;
 }
 </style>
