@@ -47,24 +47,26 @@ export default {
   position: fixed;
   top: 8px;
   left: 8px;
-  width: 320px;
-  height: 480px;
+  width: @pWidth;
+  height: @pHeight;
   background: white;
-  box-shadow: 0 0 1px black;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.24);
   overflow-x: hidden;
   overflow-y: scroll;
 
   @d8line: 1px solid #d8d8d8;
+  @pWidth: 390px;
+  @pHeight: 426px;
 
   .homepage {
     .content>.page {
       position: absolute;
-      width: 320px;
-      height: 480px;
+      width: @pWidth;
+      height: @pHeight;
     }
 
     .push-enter {
-      transform: translateX(320px);
+      transform: translateX(@pWidth);
       opacity: 0.8;
     }
 
@@ -84,7 +86,7 @@ export default {
 
     .push-leave-to,
     .pop-enter {
-      transform: translateX(-160px);
+      transform: translateX(-@pWidth / 2);
       opacity: 0.8;
     }
 
@@ -104,7 +106,7 @@ export default {
     }
 
     .pop-leave-to {
-      transform: translateX(320px);
+      transform: translateX(@pWidth);
     }
   }
 }
