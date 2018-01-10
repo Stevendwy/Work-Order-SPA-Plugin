@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import A from './A/a'
+import Empty from '../component/empty.vue'
+import Comment from '../component/comment.vue'
 
 Vue.use(VueRouter)
 
 export default new VueRouter({
   routes: [
-    // {path: '/', component: () => import(/* webpackChunkName: "sale" */'../component/A/a.vue'), alias: '/A', children: aa},
+    {path: '/empty', alias: '/', component: Empty},
+    {path: '/comment', component: Comment},
   ]
 })

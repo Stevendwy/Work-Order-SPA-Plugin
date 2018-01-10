@@ -1,17 +1,21 @@
 <template lang="pug">
-  #app {{content}}
+  Topic
 </template>
 
 <script>
+import Topic from './component/topic.vue'
+
 export default {
+  components: {
+    Topic
+  },
   data() {
     return {
-      content: "Hello Vue"
+      
     };
   }
 };
 </script>
-
 
 <style lang='less'>
 * {
@@ -19,8 +23,7 @@ export default {
 }
 
 html,
-body,
-#app {
+body {
   height: 100%;
 }
 
