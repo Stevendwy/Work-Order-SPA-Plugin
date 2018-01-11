@@ -2,7 +2,14 @@
   z-page.comment(:noHeader="true")
     z-view.title
       z-text 专家留言区
-    z-list.list
+    z-view.list-empty(v-if="comments.length < 1")
+      z-img.img(src="/static/img/p_world.png")
+      z-text.text 对数据有疑问？
+      z-text.text 想寻求专业人士解答？
+      z-text.text 或者 想提供零件实物图片？
+      z-text.text 这是一块新大陆，现在属于你，赶快留言吧！
+      z-button.other(@click="otherClick") 看看其他留言>
+    z-list.list(v-else)
       p-item(v-for="(item, index) in comments" :key="index"
         :item="item")
     z-view.reply-button
@@ -24,6 +31,11 @@ export default {
       comments: [1, 2, 3, 4, 5, 6, 7, 8],
       replyShow: true // 回复框是否显示出来
     };
+  },
+  methods: {
+    otherClick() {
+      console.log('otherClick')
+    }
   }
 };
 </script>
@@ -32,6 +44,8 @@ export default {
 .comment {
   position: relative;
   overflow: hidden;
+
+  @pColor: #4990e2;
 
   .title {
     width: 100%;
@@ -45,6 +59,34 @@ export default {
   .list {
     width: 100%;
     height: e("calc(100% - 88px)");
+  }
+
+  .list-empty {
+    .list;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 25px;
+    }
+
+    .text {
+      font-size: 14px;
+      color: #d8d8d8;
+    }
+
+    .other {
+      width: 110px;
+      height: 32px;
+      color: @pColor;
+      border: 1px solid @pColor;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
   }
 
   .reply-button {

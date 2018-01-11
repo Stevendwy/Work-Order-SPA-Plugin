@@ -10624,6 +10624,13 @@ process.umask = function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -10638,6 +10645,12 @@ process.umask = function () {
       comments: [1, 2, 3, 4, 5, 6, 7, 8],
       replyShow: true // 回复框是否显示出来
     };
+  },
+
+  methods: {
+    otherClick: function otherClick() {
+      console.log('otherClick');
+    }
   }
 });
 
@@ -14514,7 +14527,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.comment[data-v-56c44994] {\n  position: relative;\n  overflow: hidden;\n}\n.comment .title[data-v-56c44994] {\n  width: 100%;\n  line-height: 40px;\n  padding-left: 10px;\n  background: #4990e2;\n  color: white;\n  font-size: 14px;\n}\n.comment .list[data-v-56c44994] {\n  width: 100%;\n  height: calc(100% - 88px);\n}\n.comment .reply-button[data-v-56c44994] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 48px;\n  background: white;\n  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.24);\n}\n.comment .reply-button .button[data-v-56c44994] {\n  width: 320px;\n  height: 40px;\n  border-radius: 4px;\n  background: #4990e2;\n  color: white;\n}\n", ""]);
+exports.push([module.i, "\n.comment[data-v-56c44994] {\n  position: relative;\n  overflow: hidden;\n}\n.comment .title[data-v-56c44994] {\n  width: 100%;\n  line-height: 40px;\n  padding-left: 10px;\n  background: #4990e2;\n  color: white;\n  font-size: 14px;\n}\n.comment .list[data-v-56c44994] {\n  width: 100%;\n  height: calc(100% - 88px);\n}\n.comment .list-empty[data-v-56c44994] {\n  width: 100%;\n  height: calc(100% - 88px);\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.comment .list-empty .img[data-v-56c44994] {\n  width: 80px;\n  height: 80px;\n  margin-bottom: 25px;\n}\n.comment .list-empty .text[data-v-56c44994] {\n  font-size: 14px;\n  color: #d8d8d8;\n}\n.comment .list-empty .other[data-v-56c44994] {\n  width: 110px;\n  height: 32px;\n  color: #4990e2;\n  border: 1px solid #4990e2;\n  border-radius: 4px;\n  margin-top: 10px;\n}\n.comment .reply-button[data-v-56c44994] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 48px;\n  background: white;\n  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.24);\n}\n.comment .reply-button .button[data-v-56c44994] {\n  width: 320px;\n  height: 40px;\n  border-radius: 4px;\n  background: #4990e2;\n  color: white;\n}\n", ""]);
 
 // exports
 
@@ -14941,13 +14954,40 @@ var render = function() {
         [_c("z-text", [_vm._v("专家留言区")])],
         1
       ),
-      _c(
-        "z-list",
-        { staticClass: "list" },
-        _vm._l(_vm.comments, function(item, index) {
-          return _c("p-item", { key: index, attrs: { item: item } })
-        })
-      ),
+      _vm.comments.length < 1
+        ? _c(
+            "z-view",
+            { staticClass: "list-empty" },
+            [
+              _c("z-img", {
+                staticClass: "img",
+                attrs: { src: "/static/img/p_world.png" }
+              }),
+              _c("z-text", { staticClass: "text" }, [_vm._v("对数据有疑问？")]),
+              _c("z-text", { staticClass: "text" }, [
+                _vm._v("想寻求专业人士解答？")
+              ]),
+              _c("z-text", { staticClass: "text" }, [
+                _vm._v("或者 想提供零件实物图片？")
+              ]),
+              _c("z-text", { staticClass: "text" }, [
+                _vm._v("这是一块新大陆，现在属于你，赶快留言吧！")
+              ]),
+              _c(
+                "z-button",
+                { staticClass: "other", on: { click: _vm.otherClick } },
+                [_vm._v("看看其他留言>")]
+              )
+            ],
+            1
+          )
+        : _c(
+            "z-list",
+            { staticClass: "list" },
+            _vm._l(_vm.comments, function(item, index) {
+              return _c("p-item", { key: index, attrs: { item: item } })
+            })
+          ),
       _c(
         "z-view",
         { staticClass: "reply-button" },
