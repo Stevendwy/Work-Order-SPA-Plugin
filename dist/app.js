@@ -10714,9 +10714,17 @@ process.umask = function () {
 //
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+  components: {},
   props: ["show"],
+  data: function data() {
+    return {
+      files: [],
+      fileUpload: null // 图片上传的 input
+    };
+  },
   mounted: function mounted() {
     this.buildTriangle();
+    this.fileUpload = this.$refs.fileUpload;
   },
 
   methods: {
@@ -10735,7 +10743,12 @@ process.umask = function () {
       console.log(value);
     },
     submit: function submit() {
-      console.log('submit');
+      console.log("submit");
+    },
+    fileChange: function fileChange() {
+      var file = this.fileUpload.files[0];
+      var url = URL.createObjectURL(file);
+      this.files.push({ url: url, file: file });
     }
   }
 });
@@ -14783,7 +14796,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.reply[data-v-ddded842] {\n  position: absolute;\n  top: 426px;\n  padding-top: 40px;\n  width: 390px;\n  height: 386px;\n  transition: transform 0.3s ease;\n}\n.reply .content[data-v-ddded842] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  width: 390px;\n  height: 346px;\n  background: white;\n  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.24);\n}\n.reply .content .triangle[data-v-ddded842] {\n  margin: 7px 0;\n  cursor: pointer;\n}\n.reply .content .textarea[data-v-ddded842] {\n  width: 370px;\n  height: 120px;\n  border: 1px solid #d8d8d8;\n  border-radius: 4px;\n}\n.reply .content .explain[data-v-ddded842] {\n  width: 100%;\n  padding-left: 10px;\n  margin: 10px 0 13px 0;\n}\n.reply .content .explain .img[data-v-ddded842] {\n  width: 17px;\n  height: auto;\n}\n.reply .content .explain .remind[data-v-ddded842] {\n  font-size: 12px;\n  color: #999;\n}\n.reply .content .uploads[data-v-ddded842] {\n  display: flex;\n  justify-content: space-between;\n  width: 100%;\n  height: 80px;\n  padding: 0 10px;\n}\n.reply .content .uploads .upload[data-v-ddded842] {\n  width: 80px;\n  height: 80px;\n}\n.reply .content .ctrls[data-v-ddded842] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 48px;\n  margin-top: 38px;\n}\n.reply .content .ctrls .cancel[data-v-ddded842],\n.reply .content .ctrls .submit[data-v-ddded842] {\n  width: 140px;\n  height: 40px;\n  border-radius: 4px;\n  color: white;\n  margin: 0 10px;\n}\n.reply .content .ctrls .cancel[data-v-ddded842] {\n  background: #d8d8d8;\n}\n.reply .content .ctrls .submit[data-v-ddded842] {\n  background: #4990E2;\n}\n.show[data-v-ddded842] {\n  transform: translateY(-386px);\n}\n", ""]);
+exports.push([module.i, "\n.reply[data-v-ddded842] {\n  position: absolute;\n  top: 426px;\n  padding-top: 40px;\n  width: 390px;\n  height: 386px;\n  transition: transform 0.3s ease;\n}\n.reply .content[data-v-ddded842] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  width: 390px;\n  height: 346px;\n  background: white;\n  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.24);\n}\n.reply .content .triangle[data-v-ddded842] {\n  margin: 7px 0;\n  cursor: pointer;\n}\n.reply .content .textarea[data-v-ddded842] {\n  width: 370px;\n  height: 120px;\n  border: 1px solid #d8d8d8;\n  border-radius: 4px;\n}\n.reply .content .explain[data-v-ddded842] {\n  width: 100%;\n  padding-left: 10px;\n  margin: 10px 0;\n}\n.reply .content .explain .img[data-v-ddded842] {\n  width: 17px;\n  height: auto;\n}\n.reply .content .explain .remind[data-v-ddded842] {\n  font-size: 12px;\n  color: #999;\n}\n.reply .content .uploads[data-v-ddded842] {\n  display: flex;\n  width: 100%;\n  height: 80px;\n  padding: 0 10px;\n}\n.reply .content .uploads .img[data-v-ddded842] {\n  width: 80px;\n  height: 80px;\n  margin-right: 10px;\n}\n.reply .content .uploads .upload[data-v-ddded842] {\n  position: relative;\n  width: 80px;\n  height: 80px;\n  border: 1px solid #d8d8d8;\n  border-radius: 0;\n  cursor: pointer;\n}\n.reply .content .uploads .upload[data-v-ddded842]:before {\n  content: \"\";\n  position: absolute;\n  left: 30px;\n  top: 39px;\n  width: 20px;\n  border-top: 1px solid #d8d8d8;\n}\n.reply .content .uploads .upload[data-v-ddded842]:after {\n  content: \"\";\n  position: absolute;\n  left: 39px;\n  top: 30px;\n  height: 20px;\n  border-left: 1px solid #d8d8d8;\n}\n.reply .content .uploads .file-upload[data-v-ddded842] {\n  display: none;\n}\n.reply .content .ctrls[data-v-ddded842] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 48px;\n  margin-top: 36px;\n}\n.reply .content .ctrls .cancel[data-v-ddded842],\n.reply .content .ctrls .submit[data-v-ddded842] {\n  width: 140px;\n  height: 40px;\n  border-radius: 4px;\n  color: white;\n  margin: 0 10px;\n}\n.reply .content .ctrls .cancel[data-v-ddded842] {\n  background: #d8d8d8;\n}\n.reply .content .ctrls .submit[data-v-ddded842] {\n  background: #4990e2;\n}\n.show[data-v-ddded842] {\n  transform: translateY(-386px);\n}\n", ""]);
 
 // exports
 
@@ -14840,12 +14853,31 @@ var render = function() {
             "z-view",
             { staticClass: "uploads" },
             [
-              _c("z-view", { staticClass: "upload" }),
-              _c("z-view", { staticClass: "upload" }),
-              _c("z-view", { staticClass: "upload" }),
-              _c("z-view", { staticClass: "upload" })
+              _vm._l(_vm.files, function(file, index) {
+                return _c("z-img", {
+                  key: index,
+                  staticClass: "img",
+                  attrs: { src: file.url }
+                })
+              }),
+              _vm.files.length < 4
+                ? _c("z-button", {
+                    staticClass: "upload",
+                    on: {
+                      click: function($event) {
+                        _vm.fileUpload.click()
+                      }
+                    }
+                  })
+                : _vm._e(),
+              _c("input", {
+                ref: "fileUpload",
+                staticClass: "file-upload",
+                attrs: { type: "file" },
+                on: { change: _vm.fileChange }
+              })
             ],
-            1
+            2
           ),
           _c(
             "z-view",

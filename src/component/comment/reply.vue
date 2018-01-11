@@ -8,10 +8,10 @@
         z-img.img(:src="'#'")
         z-text.remind 上传零件实物图片奖励10个专家积分
       z-view.uploads
-        z-view.upload
-        z-view.upload
-        z-view.upload
-        z-view.upload
+        z-img.img(v-for="(file, index) of files" :key="index"
+          :src="file.url")
+        z-button.upload(v-if="files.length < 4" @click="fileUpload.click()")
+        input.file-upload(ref="fileUpload" type="file" @change="fileChange")
       z-view.ctrls
         z-button.cancel(@click="close") 取消
         z-button.submit(@click="submit") 提交留言
@@ -19,9 +19,17 @@
 
 <script>
 export default {
+  components: {},
   props: ["show"],
+  data() {
+    return {
+      files: [],
+      fileUpload: null, // 图片上传的 input
+    };
+  },
   mounted() {
     this.buildTriangle();
+    this.fileUpload = this.$refs.fileUpload
   },
   methods: {
     buildTriangle() {
@@ -36,10 +44,15 @@ export default {
       this.$emit("close");
     },
     updateValue(value) {
-      console.log(value)
+      console.log(value);
     },
     submit() {
-      console.log('submit')
+      console.log("submit");
+    },
+    fileChange() {
+      let file = this.fileUpload.files[0]
+      let url = URL.createObjectURL(file)
+      this.files.push({ url, file });
     }
   }
 };
@@ -49,7 +62,8 @@ export default {
 @pWidth: 390px;
 @pHeight: 426px;
 @d8Color: #d8d8d8;
-@pColor: #4990E2;
+@d8line: 1px solid @d8Color;
+@pColor: #4990e2;
 
 .reply {
   position: absolute;
@@ -83,7 +97,7 @@ export default {
     .explain {
       width: 100%;
       padding-left: 10px;
-      margin: 10px 0 13px 0;
+      margin: 10px 0;
 
       .img {
         width: 17px;
@@ -98,14 +112,48 @@ export default {
 
     .uploads {
       display: flex;
-      justify-content: space-between;
       width: 100%;
       height: 80px;
       padding: 0 10px;
 
-      .upload {
+      .img {
         width: 80px;
         height: 80px;
+        margin-right: 10px;
+      }
+
+      @width: 80px;
+      @height: @width;
+
+      .upload {
+        position: relative;
+        width: @width;
+        height: @height;
+        border: @d8line;
+        border-radius: 0;
+        cursor: pointer;
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: 30px;
+          top: 39px;
+          width: 20px;
+          border-top: @d8line;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          left: 39px;
+          top: 30px;
+          height: 20px;
+          border-left: @d8line;
+        }
+      }
+
+      .file-upload {
+        display: none;
       }
     }
 
@@ -115,9 +163,10 @@ export default {
       align-items: center;
       width: 100%;
       height: 48px;
-      margin-top: 38px;
+      margin-top: 36px;
 
-      .cancel, .submit {
+      .cancel,
+      .submit {
         width: 140px;
         height: 40px;
         border-radius: 4px;
