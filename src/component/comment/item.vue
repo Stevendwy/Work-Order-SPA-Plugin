@@ -1,17 +1,23 @@
 <template lang="pug">
   z-item.item(@click="fold=!fold")
+    z-view.user
+      z-img.head(:src="'#'")
+      z-text.name 名字
+      z-text.time 日期
+    z-view.title
+      z-text 我是 title
     z-view.top(:class="{overflow: fold}")
       z-text 这个后视镜价格不对！谁知道价格？着急啊，哪位大神知道的快点告诉我，跪求
     z-view.imgs(v-show="!fold")
       z-img.img(v-for="(img, index) of imgs" :key="index"
         :src="fold ? '#' : img")
     z-view.bottom
-      z-text 日期
-      z-view
-        z-button(@click="clickGood"
-          :class="{marked: haveGood}") 赞 {{good}}
-        z-button(@click="clickRubbish"
-          :class="{marked: haveRubbish}") 踩 {{rubbish}}
+      z-button(@click="clickGood") {{good}}
+        template(slot="left")
+          z-view.icon-good(:class="{marked: haveGood}")
+      z-button(@click="clickRubbish") {{rubbish}}
+        template(slot="left")
+          z-view.icon-rubbish(:class="{marked: haveRubbish}")
 </template>
 
 <script>
@@ -50,19 +56,45 @@ export default {
 .item {
   flex-direction: column;
   justify-content: space-between;
-  min-height: 60px;
+  min-height: 136px;
 
   @d8Color: #d8d8d8;
   @mainColor: #4990e2;
 
+  .user,
+  .title,
   .top,
   .bottom {
     width: 100%;
   }
 
+  .user {
+    margin: 10px 0;
+    font-size: 12px;
+
+    .head {
+      width: 32px;
+      height: 32px;
+    }
+
+    .name {
+      color: #333;
+    }
+
+    .time {
+      color: #999;
+    }
+  }
+
+  .title {
+    font-size: 12px;
+    color: #333;
+  }
+
   .top {
     font-size: 14px;
     color: #333;
+    margin: 10px 0;
   }
 
   .imgs {
@@ -83,10 +115,21 @@ export default {
   }
 
   .bottom {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: @d8Color;
+    .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: url(/static/img/spirit.png) 4px -470px ~'/' 40px no-repeat;
+    }
+
+    .icon-good {
+      .icon;
+    }
+
+    .icon-rubbish {
+      .icon;
+      background-position-y: -510px
+    }
 
     .marked {
       color: @mainColor;

@@ -10675,6 +10675,12 @@ process.umask = function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   props: ["item"],
@@ -14623,7 +14629,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.item[data-v-74ecb92e] {\n  flex-direction: column;\n  justify-content: space-between;\n  min-height: 60px;\n}\n.item .top[data-v-74ecb92e],\n.item .bottom[data-v-74ecb92e] {\n  width: 100%;\n}\n.item .top[data-v-74ecb92e] {\n  font-size: 14px;\n  color: #333;\n}\n.item .imgs[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n}\n.item .imgs .img[data-v-74ecb92e] {\n  width: 140px;\n  height: 140px;\n}\n.item .overflow[data-v-74ecb92e] {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.item .bottom[data-v-74ecb92e] {\n  display: flex;\n  justify-content: space-between;\n  font-size: 12px;\n  color: #d8d8d8;\n}\n.item .bottom .marked[data-v-74ecb92e] {\n  color: #4990e2;\n}\n", ""]);
+exports.push([module.i, "\n.item[data-v-74ecb92e] {\n  flex-direction: column;\n  justify-content: space-between;\n  min-height: 136px;\n}\n.item .user[data-v-74ecb92e],\n.item .title[data-v-74ecb92e],\n.item .top[data-v-74ecb92e],\n.item .bottom[data-v-74ecb92e] {\n  width: 100%;\n}\n.item .user[data-v-74ecb92e] {\n  margin: 10px 0;\n  font-size: 12px;\n}\n.item .user .head[data-v-74ecb92e] {\n  width: 32px;\n  height: 32px;\n}\n.item .user .name[data-v-74ecb92e] {\n  color: #333;\n}\n.item .user .time[data-v-74ecb92e] {\n  color: #999;\n}\n.item .title[data-v-74ecb92e] {\n  font-size: 12px;\n  color: #333;\n}\n.item .top[data-v-74ecb92e] {\n  font-size: 14px;\n  color: #333;\n  margin: 10px 0;\n}\n.item .imgs[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n}\n.item .imgs .img[data-v-74ecb92e] {\n  width: 140px;\n  height: 140px;\n}\n.item .overflow[data-v-74ecb92e] {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.item .bottom .icon[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -470px / 40px no-repeat;\n}\n.item .bottom .icon-good[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -470px / 40px no-repeat;\n}\n.item .bottom .icon-rubbish[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -470px / 40px no-repeat;\n  background-position-y: -510px;\n}\n.item .bottom .marked[data-v-74ecb92e] {\n  color: #4990e2;\n}\n", ""]);
 
 // exports
 
@@ -14648,6 +14654,22 @@ var render = function() {
       }
     },
     [
+      _c(
+        "z-view",
+        { staticClass: "user" },
+        [
+          _c("z-img", { staticClass: "head", attrs: { src: "#" } }),
+          _c("z-text", { staticClass: "name" }, [_vm._v("名字")]),
+          _c("z-text", { staticClass: "time" }, [_vm._v("日期")])
+        ],
+        1
+      ),
+      _c(
+        "z-view",
+        { staticClass: "title" },
+        [_c("z-text", [_vm._v("我是 title")])],
+        1
+      ),
       _c(
         "z-view",
         { staticClass: "top", class: { overflow: _vm.fold } },
@@ -14685,28 +14707,43 @@ var render = function() {
         "z-view",
         { staticClass: "bottom" },
         [
-          _c("z-text", [_vm._v("日期")]),
           _c(
-            "z-view",
+            "z-button",
+            { on: { click: _vm.clickGood } },
             [
+              _vm._v(_vm._s(_vm.good)),
               _c(
-                "z-button",
-                {
-                  class: { marked: _vm.haveGood },
-                  on: { click: _vm.clickGood }
-                },
-                [_vm._v("赞 " + _vm._s(_vm.good))]
-              ),
-              _c(
-                "z-button",
-                {
-                  class: { marked: _vm.haveRubbish },
-                  on: { click: _vm.clickRubbish }
-                },
-                [_vm._v("踩 " + _vm._s(_vm.rubbish))]
+                "template",
+                { slot: "left" },
+                [
+                  _c("z-view", {
+                    staticClass: "icon-good",
+                    class: { marked: _vm.haveGood }
+                  })
+                ],
+                1
               )
             ],
-            1
+            2
+          ),
+          _c(
+            "z-button",
+            { on: { click: _vm.clickRubbish } },
+            [
+              _vm._v(_vm._s(_vm.rubbish)),
+              _c(
+                "template",
+                { slot: "left" },
+                [
+                  _c("z-view", {
+                    staticClass: "icon-rubbish",
+                    class: { marked: _vm.haveRubbish }
+                  })
+                ],
+                1
+              )
+            ],
+            2
           )
         ],
         1
