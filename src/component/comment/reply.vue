@@ -7,6 +7,14 @@
       z-view.explain
         z-img.img(:src="'#'")
         z-text.remind 上传零件实物图片奖励10个专家积分
+      z-view.uploads
+        z-view.upload
+        z-view.upload
+        z-view.upload
+        z-view.upload
+      z-view.ctrls
+        z-button.cancel(@click="close") 取消
+        z-button.submit(@click="submit") 提交留言
 </template>
 
 <script>
@@ -29,6 +37,9 @@ export default {
     },
     updateValue(value) {
       console.log(value)
+    },
+    submit() {
+      console.log('submit')
     }
   }
 };
@@ -37,6 +48,9 @@ export default {
 <style scoped lang="less">
 @pWidth: 390px;
 @pHeight: 426px;
+@d8Color: #d8d8d8;
+@pColor: #4990E2;
+
 .reply {
   position: absolute;
   top: @pHeight;
@@ -72,12 +86,51 @@ export default {
       margin: 10px 0 13px 0;
 
       .img {
-        
+        width: 17px;
+        height: auto;
       }
 
       .remind {
         font-size: 12px;
         color: #999;
+      }
+    }
+
+    .uploads {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 80px;
+      padding: 0 10px;
+
+      .upload {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    .ctrls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 48px;
+      margin-top: 38px;
+
+      .cancel, .submit {
+        width: 140px;
+        height: 40px;
+        border-radius: 4px;
+        color: white;
+        margin: 0 10px;
+      }
+
+      .cancel {
+        background: @d8Color;
+      }
+
+      .submit {
+        background: @pColor;
       }
     }
   }
