@@ -10652,6 +10652,9 @@ process.umask = function () {
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   props: ["item"],
@@ -10661,7 +10664,8 @@ process.umask = function () {
       haveGood: false,
       haveRubbish: false,
       good: 2,
-      rubbish: 2
+      rubbish: 2,
+      imgs: ['http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png', 'http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png', 'http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png', 'http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png', 'http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png']
     };
   },
 
@@ -11413,6 +11417,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('zList', __WEBPACK_IMPORTE
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('zItem', __WEBPACK_IMPORTED_MODULE_3_koala_ui__["zItem"]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('zText', __WEBPACK_IMPORTED_MODULE_3_koala_ui__["zText"]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('zButton', __WEBPACK_IMPORTED_MODULE_3_koala_ui__["zButton"]);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('zImg', __WEBPACK_IMPORTED_MODULE_3_koala_ui__["zImg"]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$headerBackground = "#4990e2";
 
 new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
@@ -14480,7 +14485,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.item[data-v-74ecb92e] {\n  flex-direction: column;\n  justify-content: space-between;\n  min-height: 60px;\n}\n.item .top[data-v-74ecb92e],\n.item .bottom[data-v-74ecb92e] {\n  width: 100%;\n}\n.item .top[data-v-74ecb92e] {\n  font-size: 14px;\n  color: #333;\n}\n.item .overflow[data-v-74ecb92e] {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.item .bottom[data-v-74ecb92e] {\n  display: flex;\n  justify-content: space-between;\n  font-size: 12px;\n  color: #d8d8d8;\n}\n.item .bottom .marked[data-v-74ecb92e] {\n  color: #4990e2;\n}\n", ""]);
+exports.push([module.i, "\n.item[data-v-74ecb92e] {\n  flex-direction: column;\n  justify-content: space-between;\n  min-height: 60px;\n}\n.item .top[data-v-74ecb92e],\n.item .bottom[data-v-74ecb92e] {\n  width: 100%;\n}\n.item .top[data-v-74ecb92e] {\n  font-size: 14px;\n  color: #333;\n}\n.item .imgs[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n}\n.item .imgs .img[data-v-74ecb92e] {\n  width: 140px;\n  height: 140px;\n}\n.item .overflow[data-v-74ecb92e] {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.item .bottom[data-v-74ecb92e] {\n  display: flex;\n  justify-content: space-between;\n  font-size: 12px;\n  color: #d8d8d8;\n}\n.item .bottom .marked[data-v-74ecb92e] {\n  color: #4990e2;\n}\n", ""]);
 
 // exports
 
@@ -14516,6 +14521,27 @@ var render = function() {
           ])
         ],
         1
+      ),
+      _c(
+        "z-view",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: !_vm.fold,
+              expression: "!fold"
+            }
+          ],
+          staticClass: "imgs"
+        },
+        _vm._l(_vm.imgs, function(img, index) {
+          return _c("z-img", {
+            key: index,
+            staticClass: "img",
+            attrs: { src: _vm.fold ? "#" : img }
+          })
+        })
       ),
       _c(
         "z-view",
