@@ -10725,6 +10725,7 @@ process.umask = function () {
   mounted: function mounted() {
     this.buildTriangle();
     this.fileUpload = this.$refs.fileUpload;
+    setTimeout(this.close, 0);
   },
 
   methods: {
