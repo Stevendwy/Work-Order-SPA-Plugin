@@ -1,5 +1,5 @@
 <template lang="pug">
-  z-view.reply(:class="{show: show}" @clickSelf="close")
+  z-view.reply(:class="{show: show, block: builded}" @clickSelf="close")
     z-view.content
       canvas.triangle(ref='triangle' width="12" height="6"
         @click="close")
@@ -25,11 +25,17 @@ export default {
     return {
       files: [],
       fileUpload: null, // 图片上传的 input
+      builded: false, // 构建完成
     };
   },
   mounted() {
     this.buildTriangle();
     this.fileUpload = this.$refs.fileUpload
+    setTimeout(this.close, 100)
+
+    setTimeout(() => {
+      this.builded = true
+    }, 500)
   },
   methods: {
     buildTriangle() {
@@ -72,6 +78,7 @@ export default {
   width: @pWidth;
   height: @pHeight - 40px;
   transition: transform 0.3s ease;
+  opacity: 0;
 
   .content {
     display: flex;
@@ -187,5 +194,9 @@ export default {
 
 .show {
   transform: translateY(-@pHeight + 40px);
+}
+
+.block {
+  opacity: 1;
 }
 </style>
