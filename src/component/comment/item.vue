@@ -12,12 +12,12 @@
       z-img.img(v-for="(img, index) of imgs" :key="index"
         :src="fold ? '#' : img")
     z-view.bottom
-      z-button(:class="{marked: haveGood}" @click="clickGood") {{good}}
-        template(slot="left")
-          z-view.icon-good(:class="{marked: haveGood}")
-      z-button(:class="{marked: haveRubbish}" @click="clickRubbish") {{rubbish}}
+      z-button.rubbish(:class="{marked: haveRubbish}" @click="clickRubbish") {{rubbish}}
         template(slot="left")
           z-view.icon-rubbish(:class="{marked: haveRubbish}")
+      z-button.good(:class="{marked: haveGood}" @click="clickGood") {{good}}
+        template(slot="left")
+          z-view.icon-good(:class="{marked: haveGood}")
 </template>
 
 <script>
@@ -115,20 +115,36 @@ export default {
   }
 
   .bottom {
+    .good, .rubbish {
+      padding: 0;
+    }
+
+    .rubbish {
+      margin-right: 40px;
+    }
+
     .icon {
       display: inline-block;
       width: 20px;
       height: 20px;
-      background: url(/static/img/spirit.png) 4px -470px ~'/' 40px no-repeat;
+      background: url(/static/img/spirit.png) 4px -476px ~'/' 40px no-repeat;
     }
 
     .icon-good {
       .icon;
+
+      &.marked {
+        background-position-y: -516px
+      }
     }
 
     .icon-rubbish {
       .icon;
-      background-position-y: -510px
+      background-position-y: -556px
+    }
+
+    .icon-rubbish.marked {
+      background-position-y: -596px
     }
 
     .marked {

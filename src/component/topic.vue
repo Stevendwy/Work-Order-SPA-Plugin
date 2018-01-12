@@ -6,7 +6,7 @@
       transition(:name="transitionName"
         @before-enter="beforeEnter"
         @after-enter="afterEnter")
-          router-view(:afterEnter="hasEnter")
+        router-view(:afterEnter="hasEnter")
 </template>
 
 <script>

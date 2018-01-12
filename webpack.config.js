@@ -2,7 +2,8 @@ module.exports = {
   entry: `./src/main.js`,
   output: {
       path: `${__dirname}/dist`,
-      filename: 'app.js'
+      filename: 'app.js',
+      publicPath: './'
   },
   module: {
       loaders: [
@@ -31,7 +32,7 @@ module.exports = {
               loader: 'url-loader',
               query: {
                   limit: 10,
-                  name: '/static/img/[name].[ext]'
+                  name: 'static/img/[name].[ext]'
               }
           }
       ]
@@ -39,7 +40,7 @@ module.exports = {
   resolve: {
       alias: {
           vue: 'vue/dist/vue.js',
-          '~': __dirname
+          // '~': __dirname
       }
   }
 //    plugins: [
