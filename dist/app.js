@@ -473,12 +473,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "../static/img/spirit.png";
-
-/***/ }),
+/* 3 */,
 /* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14634,36 +14629,18 @@ if(false) {
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var escape = __webpack_require__(47);
 exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.item[data-v-74ecb92e] {\n  flex-direction: column;\n  justify-content: space-between;\n  min-height: 136px;\n}\n.item .user[data-v-74ecb92e],\n.item .title[data-v-74ecb92e],\n.item .top[data-v-74ecb92e],\n.item .bottom[data-v-74ecb92e] {\n  width: 100%;\n}\n.item .user[data-v-74ecb92e] {\n  margin: 10px 0;\n  font-size: 12px;\n}\n.item .user .head[data-v-74ecb92e] {\n  width: 32px;\n  height: 32px;\n}\n.item .user .name[data-v-74ecb92e] {\n  color: #333;\n}\n.item .user .time[data-v-74ecb92e] {\n  color: #999;\n}\n.item .title[data-v-74ecb92e] {\n  font-size: 12px;\n  color: #333;\n}\n.item .top[data-v-74ecb92e] {\n  font-size: 14px;\n  color: #333;\n  margin: 10px 0;\n}\n.item .imgs[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n}\n.item .imgs .img[data-v-74ecb92e] {\n  width: 140px;\n  height: 140px;\n}\n.item .overflow[data-v-74ecb92e] {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.item .bottom .icon[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(3)) + ") 4px -470px / 40px no-repeat;\n}\n.item .bottom .icon-good[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(3)) + ") 4px -470px / 40px no-repeat;\n}\n.item .bottom .icon-rubbish[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(3)) + ") 4px -470px / 40px no-repeat;\n  background-position-y: -510px;\n}\n.item .bottom .marked[data-v-74ecb92e] {\n  color: #4990e2;\n}\n", ""]);
+exports.push([module.i, "\n.item[data-v-74ecb92e] {\n  flex-direction: column;\n  justify-content: space-between;\n  min-height: 136px;\n}\n.item .user[data-v-74ecb92e],\n.item .title[data-v-74ecb92e],\n.item .top[data-v-74ecb92e],\n.item .bottom[data-v-74ecb92e] {\n  width: 100%;\n}\n.item .user[data-v-74ecb92e] {\n  margin: 10px 0;\n  font-size: 12px;\n}\n.item .user .head[data-v-74ecb92e] {\n  width: 32px;\n  height: 32px;\n}\n.item .user .name[data-v-74ecb92e] {\n  color: #333;\n}\n.item .user .time[data-v-74ecb92e] {\n  color: #999;\n}\n.item .title[data-v-74ecb92e] {\n  font-size: 12px;\n  color: #333;\n}\n.item .top[data-v-74ecb92e] {\n  font-size: 14px;\n  color: #333;\n  margin: 10px 0;\n}\n.item .imgs[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n}\n.item .imgs .img[data-v-74ecb92e] {\n  width: 140px;\n  height: 140px;\n}\n.item .overflow[data-v-74ecb92e] {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.item .bottom .icon[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -470px / 40px no-repeat;\n}\n.item .bottom .icon-good[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -470px / 40px no-repeat;\n}\n.item .bottom .icon-rubbish[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -470px / 40px no-repeat;\n  background-position-y: -510px;\n}\n.item .bottom .marked[data-v-74ecb92e] {\n  color: #4990e2;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 47 */
-/***/ (function(module, exports) {
-
-module.exports = function escape(url) {
-    // If url is already wrapped in quotes, remove them
-    if (/^['"].*['"]$/.test(url)) {
-        url = url.slice(1, -1);
-    }
-    // Should url be wrapped?
-    // See https://drafts.csswg.org/css-values-3/#urls
-    if (/["'() \t\n]/.test(url)) {
-        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"';
-    }
-
-    return url;
-};
-
-/***/ }),
+/* 47 */,
 /* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

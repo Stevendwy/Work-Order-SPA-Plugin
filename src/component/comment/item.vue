@@ -119,7 +119,7 @@ export default {
       display: inline-block;
       width: 20px;
       height: 20px;
-      background: url(../../../static/img/spirit.png) 4px -470px ~'/' 40px no-repeat;
+      background: url(/static/img/spirit.png) 4px -470px ~'/' 40px no-repeat;
     }
 
     .icon-good {

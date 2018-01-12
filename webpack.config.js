@@ -31,7 +31,7 @@ module.exports = {
               loader: 'url-loader',
               query: {
                   limit: 10,
-                  name: '../static/img/[name].[ext]'
+                  name: '/static/img/[name].[ext]'
               }
           }
       ]
