@@ -2,30 +2,33 @@
   z-page.comment(:noHeader="true")
     z-view.title
       z-text 专家留言区
-    z-view.list-empty(v-if="comments.length < 1")
-      z-img.img(src="/static/img/p_world.png")
-      z-text.text 对数据有疑问？
-      z-text.text 想寻求专业人士解答？
-      z-text.text 或者 想提供零件实物图片？
-      z-text.text 这是一块新大陆，现在属于你，赶快留言吧！
-      z-button.other(@click="otherClick") 看看其他留言>
-    z-list.list(v-else)
-      p-item(v-for="(item, index) in comments" :key="index"
-        :item="item")
-    z-view.reply-button
-      z-button.button(@click="replyShow = true") 我要留言
-    p-reply(:show="replyShow" @close="replyShow = false")
+    template(v-if="renderContent")
+      z-view.list-empty(v-if="comments.length < 1")
+        z-img.img(src="/static/img/p_world.png")
+        z-text.text 对数据有疑问？
+        z-text.text 想寻求专业人士解答？
+        z-text.text 或者 想提供零件实物图片？
+        z-text.text 这是一块新大陆，现在属于你，赶快留言吧！
+        z-button.other(@click="otherClick") 看看其他留言>
+      z-list.list(v-else)
+        p-item(v-for="(item, index) in comments" :key="index"
+          :item="item")
+      z-view.reply-button
+        z-button.button(@click="replyShow = true") 我要留言
+      p-reply(:show="replyShow" @close="replyShow = false")
 </template>
 
 <script>
 import pItem from "./item.vue";
 import pReply from "./reply.vue";
+import mixin from "../../mixin/mixin";
 
 export default {
   components: {
     pItem,
     pReply
   },
+  mixins: [mixin],
   data() {
     return {
       comments: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -34,7 +37,7 @@ export default {
   },
   methods: {
     otherClick() {
-      console.log('otherClick')
+      console.log("otherClick");
     }
   }
 };

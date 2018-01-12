@@ -10612,6 +10612,7 @@ process.umask = function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__item_vue__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reply_vue__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixin_mixin__ = __webpack_require__(113);
 //
 //
 //
@@ -10631,6 +10632,8 @@ process.umask = function () {
 //
 //
 //
+//
+
 
 
 
@@ -10640,6 +10643,7 @@ process.umask = function () {
     pItem: __WEBPACK_IMPORTED_MODULE_0__item_vue__["a" /* default */],
     pReply: __WEBPACK_IMPORTED_MODULE_1__reply_vue__["a" /* default */]
   },
+  mixins: [__WEBPACK_IMPORTED_MODULE_2__mixin_mixin__["a" /* default */]],
   data: function data() {
     return {
       comments: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -10649,7 +10653,7 @@ process.umask = function () {
 
   methods: {
     otherClick: function otherClick() {
-      console.log('otherClick');
+      console.log("otherClick");
     }
   }
 });
@@ -14709,7 +14713,7 @@ var render = function() {
         [
           _c(
             "z-button",
-            { on: { click: _vm.clickGood } },
+            { class: { marked: _vm.haveGood }, on: { click: _vm.clickGood } },
             [
               _vm._v(_vm._s(_vm.good)),
               _c(
@@ -14728,7 +14732,10 @@ var render = function() {
           ),
           _c(
             "z-button",
-            { on: { click: _vm.clickRubbish } },
+            {
+              class: { marked: _vm.haveRubbish },
+              on: { click: _vm.clickRubbish }
+            },
             [
               _vm._v(_vm._s(_vm.rubbish)),
               _c(
@@ -14991,69 +14998,75 @@ var render = function() {
         [_c("z-text", [_vm._v("专家留言区")])],
         1
       ),
-      _vm.comments.length < 1
-        ? _c(
-            "z-view",
-            { staticClass: "list-empty" },
-            [
-              _c("z-img", {
-                staticClass: "img",
-                attrs: { src: "/static/img/p_world.png" }
-              }),
-              _c("z-text", { staticClass: "text" }, [_vm._v("对数据有疑问？")]),
-              _c("z-text", { staticClass: "text" }, [
-                _vm._v("想寻求专业人士解答？")
-              ]),
-              _c("z-text", { staticClass: "text" }, [
-                _vm._v("或者 想提供零件实物图片？")
-              ]),
-              _c("z-text", { staticClass: "text" }, [
-                _vm._v("这是一块新大陆，现在属于你，赶快留言吧！")
-              ]),
-              _c(
-                "z-button",
-                { staticClass: "other", on: { click: _vm.otherClick } },
-                [_vm._v("看看其他留言>")]
-              )
-            ],
-            1
-          )
-        : _c(
-            "z-list",
-            { staticClass: "list" },
-            _vm._l(_vm.comments, function(item, index) {
-              return _c("p-item", { key: index, attrs: { item: item } })
-            })
-          ),
-      _c(
-        "z-view",
-        { staticClass: "reply-button" },
-        [
-          _c(
-            "z-button",
-            {
-              staticClass: "button",
+      _vm.renderContent
+        ? [
+            _vm.comments.length < 1
+              ? _c(
+                  "z-view",
+                  { staticClass: "list-empty" },
+                  [
+                    _c("z-img", {
+                      staticClass: "img",
+                      attrs: { src: "/static/img/p_world.png" }
+                    }),
+                    _c("z-text", { staticClass: "text" }, [
+                      _vm._v("对数据有疑问？")
+                    ]),
+                    _c("z-text", { staticClass: "text" }, [
+                      _vm._v("想寻求专业人士解答？")
+                    ]),
+                    _c("z-text", { staticClass: "text" }, [
+                      _vm._v("或者 想提供零件实物图片？")
+                    ]),
+                    _c("z-text", { staticClass: "text" }, [
+                      _vm._v("这是一块新大陆，现在属于你，赶快留言吧！")
+                    ]),
+                    _c(
+                      "z-button",
+                      { staticClass: "other", on: { click: _vm.otherClick } },
+                      [_vm._v("看看其他留言>")]
+                    )
+                  ],
+                  1
+                )
+              : _c(
+                  "z-list",
+                  { staticClass: "list" },
+                  _vm._l(_vm.comments, function(item, index) {
+                    return _c("p-item", { key: index, attrs: { item: item } })
+                  })
+                ),
+            _c(
+              "z-view",
+              { staticClass: "reply-button" },
+              [
+                _c(
+                  "z-button",
+                  {
+                    staticClass: "button",
+                    on: {
+                      click: function($event) {
+                        _vm.replyShow = true
+                      }
+                    }
+                  },
+                  [_vm._v("我要留言")]
+                )
+              ],
+              1
+            ),
+            _c("p-reply", {
+              attrs: { show: _vm.replyShow },
               on: {
-                click: function($event) {
-                  _vm.replyShow = true
+                close: function($event) {
+                  _vm.replyShow = false
                 }
               }
-            },
-            [_vm._v("我要留言")]
-          )
-        ],
-        1
-      ),
-      _c("p-reply", {
-        attrs: { show: _vm.replyShow },
-        on: {
-          close: function($event) {
-            _vm.replyShow = false
-          }
-        }
-      })
+            })
+          ]
+        : _vm._e()
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
@@ -17092,6 +17105,33 @@ if (false) {
     require("vue-loader/node_modules/vue-hot-reload-api")      .rerender("data-v-3a1fe05c", esExports)
   }
 }
+
+/***/ }),
+/* 113 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+  props: {
+    afterEnter: Boolean
+  },
+  data: function data() {
+    return {
+      renderContent: false // 是否渲染内容用来优化性能
+    };
+  },
+
+  watch: {
+    afterEnter: function afterEnter(hasEnter) {
+      if (hasEnter) this.build();
+    }
+  },
+  methods: {
+    build: function build() {
+      this.renderContent = true;
+    }
+  }
+});
 
 /***/ })
 /******/ ]);
