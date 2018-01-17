@@ -2,14 +2,15 @@
   z-item.item(@click="fold=!fold")
     z-view.user
       z-img.head(:src="'#'")
-      z-text.name 名字
-      z-text.time 日期
+      z-text.name {{item.replier}}
+      z-text.time {{item.create_time}}
     z-view.title
-      z-text 我是 title
+      z-text {{item.headname}}
     z-view.top(:class="{overflow: fold}")
-      z-text 这个后视镜价格不对！谁知道价格？着急啊，哪位大神知道的快点告诉我，跪求
+      z-view.img-mark(v-if="hasImg")
+      z-text {{item.text}}
     z-view.imgs(v-show="!fold")
-      z-img.img(v-for="(img, index) of imgs" :key="index"
+      z-img.img(v-for="(img, index) of item.imgs" :key="index"
         :src="fold ? '#' : img")
     z-view.bottom
       z-button.rubbish(:class="{marked: haveRubbish}" @click="clickRubbish") {{rubbish}}
@@ -35,6 +36,11 @@ export default {
         'http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png',
         'http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png',
       ]
+    }
+  },
+  computed: {
+    hasImg() {
+      return this.item.imgs.length > 0
     }
   },
   methods: {
@@ -69,6 +75,8 @@ export default {
   }
 
   .user {
+    display: flex;
+    align-items: center;
     margin: 10px 0;
     font-size: 12px;
 
@@ -78,10 +86,12 @@ export default {
     }
 
     .name {
+      margin-left: 7px;
       color: #333;
     }
 
     .time {
+      margin-left: 10px;
       color: #999;
     }
   }
@@ -92,9 +102,18 @@ export default {
   }
 
   .top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     font-size: 14px;
     color: #333;
     margin: 10px 0;
+
+    .img-mark {
+      width: 20px;
+      height: 20px;
+      background: url(../../../static/img/spirit.png) 0 -278px ~'/' 40px auto no-repeat;
+    }
   }
 
   .imgs {

@@ -1,5 +1,7 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import router from './route/router'
+import store from './store'
 import App from './App.vue'
 import { zRootPage, zPage, zView, zList, zItem, zText, zButton, zImg, zTextarea } from "koala-ui";
 Vue.component('zRootPage', zRootPage)
@@ -13,9 +15,16 @@ Vue.component('zImg', zImg)
 Vue.component('zTextarea', zTextarea)
 Vue.prototype.$headerBackground = "#4990e2";
 
-new Vue({
-  el: '#app',
+window.VM = new Vue({
+  el: '#vue',
+  store,
   router,
   template: '<App />',
-  components: { App }
+  components: { App },
+  mounted() {
+    // this.aTopics()
+  },
+  methods: {
+    ...Vuex.mapActions(['aTopics'])
+  }
 })

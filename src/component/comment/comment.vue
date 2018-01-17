@@ -22,6 +22,7 @@
 import pItem from "./item.vue";
 import pReply from "./reply.vue";
 import mixin from "../../mixin/mixin";
+import u from "../../u";
 
 export default {
   components: {
@@ -31,13 +32,24 @@ export default {
   mixins: [mixin],
   data() {
     return {
-      comments: [1, 2, 3, 4, 5, 6, 7, 8],
+      comments: [],
       replyShow: true // 回复框是否显示出来
     };
   },
+  mounted() {
+    this.aComments();
+  },
   methods: {
     otherClick() {
-      console.log("otherClick");
+      this.$router.go(-1);
+    },
+    aComments() {
+      u.axiosPost("/ugc/parts/reply/comments/list", { pid: "110" })
+        .then(res => {
+          if(!res) return
+
+          this.comments = res.data
+        })
     }
   }
 };

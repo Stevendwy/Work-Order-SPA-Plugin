@@ -3,14 +3,14 @@
     z-view.content
       canvas.triangle(ref='triangle' width="12" height="6"
         @click="close")
-      z-textarea.textarea(placeholder="输入你的留言内容，建议精简内容，以便获得更多查看" :maxlength="140" initialValue="" :autofocus="true" @updateValue="updateValue")
+      z-textarea.textarea(placeholder="输入你的留言内容，建议精简内容，以便获得更多查看" :maxlength="120" initialValue="" :autofocus="true" @updateValue="updateValue")
       z-view.explain
         z-img.img(:src="'#'")
         z-text.remind 上传零件实物图片奖励10个专家积分
       z-view.uploads
-        z-img.img(v-for="(file, index) of files" :key="index"
-          :src="file.url")
-        z-button.upload(v-if="files.length < 4" @click="fileUpload.click()")
+        z-img.img(v-for="(img, index) of imgs" :key="index"
+          :src="img.url")
+        z-button.upload(v-if="imgs.length < 4" @click="fileUpload.click()")
         input.file-upload(ref="fileUpload" type="file" @change="fileChange")
       z-view.ctrls
         z-button.cancel(@click="close") 取消
@@ -18,24 +18,27 @@
 </template>
 
 <script>
+import u from "../../u";
+
 export default {
   components: {},
   props: ["show"],
   data() {
     return {
-      files: [],
+      imgs: [],
       fileUpload: null, // 图片上传的 input
       builded: false, // 构建完成
+      commentConent: '', // 评论内容
     };
   },
   mounted() {
     this.buildTriangle();
-    this.fileUpload = this.$refs.fileUpload
-    setTimeout(this.close, 100)
+    this.fileUpload = this.$refs.fileUpload;
+    setTimeout(this.close, 100);
 
     setTimeout(() => {
-      this.builded = true
-    }, 500)
+      this.builded = true;
+    }, 500);
   },
   methods: {
     buildTriangle() {
@@ -50,15 +53,28 @@ export default {
       this.$emit("close");
     },
     updateValue(value) {
-      console.log(value);
+      this.commentConent = value
     },
     submit() {
-      console.log("submit");
+      let formData = new FormData()
+      formData.append("pid", '110');
+      formData.append("headname", 'test-110');
+      formData.append("text", this.commentConent);
+      for (let i = 0, j = this.imgs.length; i < j; i ++) {
+        let file = this.imgs[i].file
+        formData.append("filename", file);
+      }
+
+      u.axiosForm("/ugc/parts/reply/leave_comments", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      });
     },
     fileChange() {
-      let file = this.fileUpload.files[0]
-      let url = URL.createObjectURL(file)
-      this.files.push({ url, file });
+      let file = this.fileUpload.files[0];
+      let url = URL.createObjectURL(file);
+      this.imgs.push({ url, file });
     }
   }
 };

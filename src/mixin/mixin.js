@@ -12,6 +12,9 @@ export default {
       if (hasEnter) this.build()
     }
   },
+  mounted() {
+    if(this.afterEnter === undefined) this.build()
+  },
   methods: {
     build() {
       this.renderContent = true;

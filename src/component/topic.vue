@@ -1,7 +1,7 @@
 <template lang="pug">
   .topic
     z-root-page.homepage(title='话题')
-      z-list(:items="items" style="cursor: pointer;"
+      z-list(:items="topics" style="cursor: pointer;"
         @itemClick="itemClick")
       transition(:name="transitionName"
         @before-enter="beforeEnter"
@@ -10,26 +10,34 @@
 </template>
 
 <script>
+import u from '../u'
+import Vuex from 'vuex'
+
 export default {
   data() {
     return {
-      items: ['车架号', '车型', '零件号'],
       transitionName: "push",
-      hasEnter: false
+      hasEnter: this.$route.path === '/' ? false : undefined
     };
+  },
+  computed: {
+    ...Vuex.mapState(['topics'])
   },
   watch: {
     $route(to, from) {
       const toDepth = to.path.split("/").length;
       const fromDepth = from.path.split("/").length;
-      if (to.path === "/") this.transitionName = "pop";
+      if (to.path === "/") {
+        this.transitionName = "pop";
+        this.aTopics()
+      }
       else if (from.path === "/") this.transitionName = "push";
       else this.transitionName = toDepth > fromDepth ? "push" : "pop";
     }
   },
   methods: {
+    ...Vuex.mapActions(['aTopics']),
     itemClick(item) {
-      console.log(item);
       this.$router.push("/comment");
     },
     beforeEnter(el, done) {
