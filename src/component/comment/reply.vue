@@ -122,7 +122,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: @pWidth;
+    width: 100%;
+    // width: @pWidth;
     height: @pHeight - 80px;
     background: white;
     box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.24);

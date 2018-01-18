@@ -1,5 +1,5 @@
 <template lang="pug">
-  .topic(@click="close")
+  .topic(@click.self="close")
     z-root-page.homepage(title='话题')
       z-list(:items="topics" style="cursor: pointer;"
         @itemClick="itemClick")

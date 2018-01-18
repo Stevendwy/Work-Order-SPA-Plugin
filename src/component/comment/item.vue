@@ -171,7 +171,7 @@ export default {
   .imgs {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    width: 100%;
 
     .img {
       width: 140px;
