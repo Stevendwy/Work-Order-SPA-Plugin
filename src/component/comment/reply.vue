@@ -3,7 +3,8 @@
     z-view.content
       canvas.triangle(ref='triangle' width="12" height="6"
         @click="close")
-      z-textarea.textarea(placeholder="输入你的留言内容，建议精简内容，以便获得更多查看" :maxlength="120" initialValue="" :autofocus="true" @updateValue="updateValue")
+      z-textarea.textarea(placeholder="输入你的留言内容，建议精简内容，以便获得更多查看" :maxlength="120" initialValue="" :autofocus="true" @updateValue="updateValue"
+        textColor="#333")
       z-view.explain
         z-view.img-mark
         z-text.remind 上传零件实物图片奖励10个专家积分
