@@ -54,9 +54,11 @@ export default {
 .topic {
   position: fixed;
   top: 130px;
+  bottom: 0;
   left: 0;
-  width: @pWidth;
-  height: @pHeight;
+  width: 37.8%;
+  min-width: 390px;
+  // height: @pHeight;
   background: white;
   box-shadow: 0 1px 8px 0 rgba(0,0,0,0.24);
   overflow-x: hidden;
@@ -70,8 +72,10 @@ export default {
   .homepage {
     .content>.page {
       position: absolute;
-      width: @pWidth;
-      height: @pHeight;
+      // width: @pWidth;
+      // height: @pHeight;
+      width: 100%;
+      height: 100%;
     }
 
     .push-enter {

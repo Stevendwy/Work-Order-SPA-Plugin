@@ -22,7 +22,7 @@ export default {
 }
 
 .hidden {
-  top: -1000px !important;
+  bottom: 1000px !important;
 }
 
 // html,

@@ -99,10 +99,12 @@ export default {
 
 .reply {
   position: absolute;
-  top: @pHeight;
-  padding-top: 40px;
-  width: @pWidth;
-  height: @pHeight - 40px;
+  // top: @pHeight;
+  bottom: 0;
+  // padding-top: 40px;
+  // width: @pWidth;
+  width: 100%;
+  // height: @pHeight - 40px;
   // transition: transform 0.3s ease;
   opacity: 0;
 
@@ -224,7 +226,7 @@ export default {
 }
 
 .show {
-  transform: translateY(-@pHeight + 40px);
+  // transform: translateY(-@pHeight + 40px);
 }
 
 .block {
