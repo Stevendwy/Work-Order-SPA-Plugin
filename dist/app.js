@@ -12195,14 +12195,18 @@ module.exports = g;
       });
     },
     configGlobal: function configGlobal() {
+      var _this2 = this;
+
       // 请求才配置，否则第一次就配置获取不到对象
       if (window.VM) window.VM.show = true;
       // 配置全局对接 api
       if (!window.closeCommentPlugin) window.closeCommentPlugin = function () {
-        return window.VM.show = false;
+        _this2.replyShow = true;
+        window.VM.show = false;
       };
     },
     close: function close() {
+      this.replyShow = false;
       window.VM.show = false;
     }
   }
