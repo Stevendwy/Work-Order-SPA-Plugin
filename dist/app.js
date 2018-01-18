@@ -12779,7 +12779,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       this.hasEnter = true;
     },
     close: function close() {
-      window.VM.show = false;
+      window.closeCommentPlugin();
     }
   })
 });

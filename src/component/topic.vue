@@ -46,7 +46,7 @@ export default {
       this.hasEnter = true;
     },
     close() {
-      window.VM.show = false
+      window.closeCommentPlugin()
     }
   }
 };
