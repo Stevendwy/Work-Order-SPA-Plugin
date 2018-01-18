@@ -74,6 +74,7 @@ export default {
     left: 0;
     width: 37.8%;
     min-width: 390px;
+    height: auto;
     min-height: 500px;
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.24);
     background: white;
