@@ -2,7 +2,7 @@
   "scripts": {
     "start": "open index.html",
     "pregp": "cp dist/app.js ../ppy-cloud/dist/",
-    "gp": "npm run cpapp && git push"
+    "gp": "npm run pregp && git push"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
