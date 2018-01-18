@@ -1,7 +1,7 @@
 <template lang="pug">
   z-item.item(@click="fold=!fold")
     z-view.user
-      z-img.head(:src="'#'")
+      z-view.head
       z-text.name {{item.replier}}
       z-text.time {{item.create_time}}
     z-view.title
@@ -83,6 +83,7 @@ export default {
     .head {
       width: 32px;
       height: 32px;
+      background: url(../../../static/img/spirit.png) 4px -574px ~'/' 32px auto no-repeat;
     }
 
     .name {
