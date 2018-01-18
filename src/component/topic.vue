@@ -59,8 +59,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
   z-index: 998;
 
   @d8line: 1px solid #d8d8d8;
