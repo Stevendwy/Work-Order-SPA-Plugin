@@ -58,10 +58,10 @@ export default {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  min-height: 500px;
   overflow-x: hidden;
   overflow-y: scroll;
-  z-index: 999;
+  z-index: 998;
 
   @d8line: 1px solid #d8d8d8;
   @pWidth: 390px;
