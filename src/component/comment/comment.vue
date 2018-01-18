@@ -10,13 +10,13 @@
         z-text.text 想寻求专业人士解答？
         z-text.text 或者 想提供零件实物图片？
         z-text.text 这是一块新大陆，现在属于你，赶快留言吧！
-        z-button.other(@click="otherClick") 看看其他留言>
+        //- z-button.other(@click="otherClick") 看看其他留言>
       z-list.list(v-else)
         p-item(v-for="(item, index) in comments" :key="index"
           :item="item")
       z-view.reply-button
         z-button.button(@click="replyShow = true") 我要留言
-      p-reply(:show="replyShow" @close="replyShow = false")
+      p-reply(v-if="replyShow" @close="replyShow = false" @update="aComments" :pid="currentPid")
 </template>
 
 <script>
@@ -34,7 +34,8 @@ export default {
   data() {
     return {
       comments: [],
-      replyShow: true // 回复框是否显示出来
+      replyShow: false, // 回复框是否显示出来
+      currentPid: '' // 当前请求的 pid
     };
   },
   mounted() {
@@ -45,12 +46,12 @@ export default {
       this.$router.go(-1);
     },
     aComments(payload) {
-      
+      if(payload) this.currentPid = payload.pid
+
       this.configGlobal()
       this.comments = []
 
-      let pid = payload.pid
-      u.axiosPost("/ugc/parts/reply/comments/list", { pid })
+      u.axiosPost("/ugc/parts/reply/comments/list", { pid: this.currentPid })
         .then(res => {
           if(!res) return
 

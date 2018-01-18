@@ -1,5 +1,5 @@
 <template lang="pug">
-  z-view.reply(:class="{show: show, block: builded}" @clickSelf="close")
+  z-view.reply(:class="{show: true, block: builded}" @clickSelf="close")
     z-view.content
       canvas.triangle(ref='triangle' width="12" height="6"
         @click="close")
@@ -22,7 +22,7 @@ import u from "../../u";
 
 export default {
   components: {},
-  props: ["show"],
+  props: ["show", "pid"],
   data() {
     return {
       imgs: [],
@@ -34,11 +34,11 @@ export default {
   mounted() {
     this.buildTriangle();
     this.fileUpload = this.$refs.fileUpload;
-    setTimeout(this.close, 100);
-
-    setTimeout(() => {
-      this.builded = true;
-    }, 500);
+    // setTimeout(this.close, 100);
+    this.builded = true;
+    // setTimeout(() => {
+    //   this.builded = true;
+    // }, 500);
   },
   methods: {
     buildTriangle() {
@@ -57,8 +57,8 @@ export default {
     },
     submit() {
       let formData = new FormData()
-      formData.append("pid", '110');
-      formData.append("headname", 'test-110');
+      formData.append("pid", this.pid);
+      formData.append("headname", 'test-headname');
       formData.append("text", this.commentConent);
       for (let i = 0, j = this.imgs.length; i < j; i ++) {
         let file = this.imgs[i].file
@@ -69,7 +69,12 @@ export default {
         headers: {
           "Content-Type": "multipart/form-data"
         }
-      });
+      }).then(res => {
+        if(!res) return
+
+        this.$emit('update')
+        this.$emit('close')
+      })
     },
     fileChange() {
       let file = this.fileUpload.files[0];
@@ -93,7 +98,7 @@ export default {
   padding-top: 40px;
   width: @pWidth;
   height: @pHeight - 40px;
-  transition: transform 0.3s ease;
+  // transition: transform 0.3s ease;
   opacity: 0;
 
   .content {
@@ -138,6 +143,7 @@ export default {
       width: 100%;
       height: 80px;
       padding: 0 10px;
+      box-sizing: border-box;
 
       .img {
         width: 80px;

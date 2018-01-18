@@ -12158,7 +12158,8 @@ module.exports = g;
   data: function data() {
     return {
       comments: [],
-      replyShow: true // 回复框是否显示出来
+      replyShow: false, // 回复框是否显示出来
+      currentPid: '' // 当前请求的 pid
     };
   },
   mounted: function mounted() {
@@ -12172,11 +12173,12 @@ module.exports = g;
     aComments: function aComments(payload) {
       var _this = this;
 
+      if (payload) this.currentPid = payload.pid;
+
       this.configGlobal();
       this.comments = [];
 
-      var pid = payload.pid;
-      __WEBPACK_IMPORTED_MODULE_3__u__["a" /* default */].axiosPost("/ugc/parts/reply/comments/list", { pid: pid }).then(function (res) {
+      __WEBPACK_IMPORTED_MODULE_3__u__["a" /* default */].axiosPost("/ugc/parts/reply/comments/list", { pid: this.currentPid }).then(function (res) {
         if (!res) return;
 
         _this.comments = res.data;
@@ -12285,7 +12287,7 @@ module.exports = g;
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   components: {},
-  props: ["show"],
+  props: ["show", "pid"],
   data: function data() {
     return {
       imgs: [],
@@ -12295,15 +12297,13 @@ module.exports = g;
     };
   },
   mounted: function mounted() {
-    var _this = this;
-
     this.buildTriangle();
     this.fileUpload = this.$refs.fileUpload;
-    setTimeout(this.close, 100);
-
-    setTimeout(function () {
-      _this.builded = true;
-    }, 500);
+    // setTimeout(this.close, 100);
+    this.builded = true;
+    // setTimeout(() => {
+    //   this.builded = true;
+    // }, 500);
   },
 
   methods: {
@@ -12322,9 +12322,11 @@ module.exports = g;
       this.commentConent = value;
     },
     submit: function submit() {
+      var _this = this;
+
       var formData = new FormData();
-      formData.append("pid", '110');
-      formData.append("headname", 'test-110');
+      formData.append("pid", this.pid);
+      formData.append("headname", 'test-headname');
       formData.append("text", this.commentConent);
       for (var i = 0, j = this.imgs.length; i < j; i++) {
         var file = this.imgs[i].file;
@@ -12335,6 +12337,11 @@ module.exports = g;
         headers: {
           "Content-Type": "multipart/form-data"
         }
+      }).then(function (res) {
+        if (!res) return;
+
+        _this.$emit('update');
+        _this.$emit('close');
       });
     },
     fileChange: function fileChange() {
@@ -16737,7 +16744,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.reply[data-v-ddded842] {\n  position: absolute;\n  top: 426px;\n  padding-top: 40px;\n  width: 390px;\n  height: 386px;\n  transition: transform 0.3s ease;\n  opacity: 0;\n}\n.reply .content[data-v-ddded842] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  width: 390px;\n  height: 346px;\n  background: white;\n  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.24);\n}\n.reply .content .triangle[data-v-ddded842] {\n  margin: 7px 0;\n  cursor: pointer;\n}\n.reply .content .textarea[data-v-ddded842] {\n  width: 370px;\n  height: 120px;\n  border: 1px solid #d8d8d8;\n  border-radius: 4px;\n}\n.reply .content .explain[data-v-ddded842] {\n  width: 100%;\n  padding-left: 10px;\n  margin: 10px 0;\n}\n.reply .content .explain .img[data-v-ddded842] {\n  width: 17px;\n  height: auto;\n}\n.reply .content .explain .remind[data-v-ddded842] {\n  font-size: 12px;\n  color: #999;\n}\n.reply .content .uploads[data-v-ddded842] {\n  display: flex;\n  width: 100%;\n  height: 80px;\n  padding: 0 10px;\n}\n.reply .content .uploads .img[data-v-ddded842] {\n  width: 80px;\n  height: 80px;\n  margin-right: 10px;\n}\n.reply .content .uploads .upload[data-v-ddded842] {\n  position: relative;\n  width: 80px;\n  height: 80px;\n  border: 1px solid #d8d8d8;\n  border-radius: 0;\n  cursor: pointer;\n}\n.reply .content .uploads .upload[data-v-ddded842]:before {\n  content: \"\";\n  position: absolute;\n  left: 30px;\n  top: 39px;\n  width: 20px;\n  border-top: 1px solid #d8d8d8;\n}\n.reply .content .uploads .upload[data-v-ddded842]:after {\n  content: \"\";\n  position: absolute;\n  left: 39px;\n  top: 30px;\n  height: 20px;\n  border-left: 1px solid #d8d8d8;\n}\n.reply .content .uploads .file-upload[data-v-ddded842] {\n  display: none;\n}\n.reply .content .ctrls[data-v-ddded842] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 48px;\n  margin-top: 36px;\n}\n.reply .content .ctrls .cancel[data-v-ddded842],\n.reply .content .ctrls .submit[data-v-ddded842] {\n  width: 140px;\n  height: 40px;\n  border-radius: 4px;\n  color: white;\n  margin: 0 10px;\n}\n.reply .content .ctrls .cancel[data-v-ddded842] {\n  background: #d8d8d8;\n}\n.reply .content .ctrls .submit[data-v-ddded842] {\n  background: #4990e2;\n}\n.show[data-v-ddded842] {\n  transform: translateY(-386px);\n}\n.block[data-v-ddded842] {\n  opacity: 1;\n}\n", ""]);
+exports.push([module.i, "\n.reply[data-v-ddded842] {\n  position: absolute;\n  top: 426px;\n  padding-top: 40px;\n  width: 390px;\n  height: 386px;\n  opacity: 0;\n}\n.reply .content[data-v-ddded842] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  width: 390px;\n  height: 346px;\n  background: white;\n  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.24);\n}\n.reply .content .triangle[data-v-ddded842] {\n  margin: 7px 0;\n  cursor: pointer;\n}\n.reply .content .textarea[data-v-ddded842] {\n  width: 370px;\n  height: 120px;\n  border: 1px solid #d8d8d8;\n  border-radius: 4px;\n}\n.reply .content .explain[data-v-ddded842] {\n  width: 100%;\n  padding-left: 10px;\n  margin: 10px 0;\n}\n.reply .content .explain .img[data-v-ddded842] {\n  width: 17px;\n  height: auto;\n}\n.reply .content .explain .remind[data-v-ddded842] {\n  font-size: 12px;\n  color: #999;\n}\n.reply .content .uploads[data-v-ddded842] {\n  display: flex;\n  width: 100%;\n  height: 80px;\n  padding: 0 10px;\n  box-sizing: border-box;\n}\n.reply .content .uploads .img[data-v-ddded842] {\n  width: 80px;\n  height: 80px;\n  margin-right: 10px;\n}\n.reply .content .uploads .upload[data-v-ddded842] {\n  position: relative;\n  width: 80px;\n  height: 80px;\n  border: 1px solid #d8d8d8;\n  border-radius: 0;\n  cursor: pointer;\n}\n.reply .content .uploads .upload[data-v-ddded842]:before {\n  content: \"\";\n  position: absolute;\n  left: 30px;\n  top: 39px;\n  width: 20px;\n  border-top: 1px solid #d8d8d8;\n}\n.reply .content .uploads .upload[data-v-ddded842]:after {\n  content: \"\";\n  position: absolute;\n  left: 39px;\n  top: 30px;\n  height: 20px;\n  border-left: 1px solid #d8d8d8;\n}\n.reply .content .uploads .file-upload[data-v-ddded842] {\n  display: none;\n}\n.reply .content .ctrls[data-v-ddded842] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 48px;\n  margin-top: 36px;\n}\n.reply .content .ctrls .cancel[data-v-ddded842],\n.reply .content .ctrls .submit[data-v-ddded842] {\n  width: 140px;\n  height: 40px;\n  border-radius: 4px;\n  color: white;\n  margin: 0 10px;\n}\n.reply .content .ctrls .cancel[data-v-ddded842] {\n  background: #d8d8d8;\n}\n.reply .content .ctrls .submit[data-v-ddded842] {\n  background: #4990e2;\n}\n.show[data-v-ddded842] {\n  transform: translateY(-386px);\n}\n.block[data-v-ddded842] {\n  opacity: 1;\n}\n", ""]);
 
 // exports
 
@@ -17589,7 +17596,7 @@ var render = function() {
     "z-view",
     {
       staticClass: "reply",
-      class: { show: _vm.show, block: _vm.builded },
+      class: { show: true, block: _vm.builded },
       on: { clickSelf: _vm.close }
     },
     [
@@ -17765,12 +17772,7 @@ var render = function() {
                     ]),
                     _c("z-text", { staticClass: "text" }, [
                       _vm._v("这是一块新大陆，现在属于你，赶快留言吧！")
-                    ]),
-                    _c(
-                      "z-button",
-                      { staticClass: "other", on: { click: _vm.otherClick } },
-                      [_vm._v("看看其他留言>")]
-                    )
+                    ])
                   ],
                   1
                 )
@@ -17800,14 +17802,17 @@ var render = function() {
               ],
               1
             ),
-            _c("p-reply", {
-              attrs: { show: _vm.replyShow },
-              on: {
-                close: function($event) {
-                  _vm.replyShow = false
-                }
-              }
-            })
+            _vm.replyShow
+              ? _c("p-reply", {
+                  attrs: { pid: _vm.currentPid },
+                  on: {
+                    close: function($event) {
+                      _vm.replyShow = false
+                    },
+                    update: _vm.aComments
+                  }
+                })
+              : _vm._e()
           ]
         : _vm._e()
     ],
