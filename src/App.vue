@@ -1,5 +1,5 @@
 <template lang="pug">
-  Topic#commentPlugin(:class="{hidden: !appShow}")
+  Topic.commentPlugin(:class="{hidden: !appShow}")
 </template>
 
 <script>
@@ -17,10 +17,8 @@ export default {
 </script>
 
 <style lang='less' scoped>
-#commentPlugin {
-  * {
-    box-sizing: border-box;
-  }
+.commentPlugin {
+  
 }
 
 .hidden {

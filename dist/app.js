@@ -12236,7 +12236,7 @@ module.exports = g;
       haveRubbish: false,
       good: 2,
       rubbish: 2,
-      imgs: ['http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png', 'http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png', 'http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png']
+      imgs: ["http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png", "http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png", "http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png"]
     };
   },
 
@@ -13417,7 +13417,7 @@ window.VM = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   router: __WEBPACK_IMPORTED_MODULE_2__route_router__["a" /* default */],
   template: '<App :appShow="show" />',
   data: {
-    show: false
+    show: true
   },
   components: { App: __WEBPACK_IMPORTED_MODULE_4__App_vue__["a" /* default */] },
   mounted: function mounted() {
@@ -16389,7 +16389,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.comment[data-v-56c44994] {\n  position: relative;\n  overflow: hidden;\n}\n.comment .title[data-v-56c44994] {\n  width: 100%;\n  line-height: 40px;\n  padding-left: 10px;\n  background: #4990e2;\n  color: white;\n  font-size: 14px;\n}\n.comment .list[data-v-56c44994] {\n  width: 100%;\n  height: calc(100% - 88px);\n}\n.comment .list-empty[data-v-56c44994] {\n  width: 100%;\n  height: calc(100% - 88px);\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.comment .list-empty .img[data-v-56c44994] {\n  width: 80px;\n  height: 80px;\n  margin-bottom: 25px;\n}\n.comment .list-empty .text[data-v-56c44994] {\n  font-size: 14px;\n  color: #d8d8d8;\n}\n.comment .list-empty .other[data-v-56c44994] {\n  width: 110px;\n  height: 32px;\n  color: #4990e2;\n  border: 1px solid #4990e2;\n  border-radius: 4px;\n  margin-top: 10px;\n}\n.comment .reply-button[data-v-56c44994] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 48px;\n  background: white;\n  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.24);\n}\n.comment .reply-button .button[data-v-56c44994] {\n  width: 320px;\n  height: 40px;\n  border-radius: 4px;\n  background: #4990e2;\n  color: white;\n}\n", ""]);
+exports.push([module.i, "\n.comment[data-v-56c44994] {\n  position: relative;\n  overflow: hidden;\n}\n.comment .title[data-v-56c44994] {\n  position: relative;\n  width: 100%;\n  line-height: 40px;\n  padding-left: 10px;\n  background: #4990e2;\n  color: white;\n  font-size: 14px;\n  box-sizing: border-box;\n}\n.comment .title .close[data-v-56c44994] {\n  position: absolute;\n  right: 8px;\n  top: 8px;\n  height: 24px;\n  width: 24px;\n  background: transparent;\n  border: 1px solid white;\n  border-radius: 12px;\n}\n.comment .title .close .content[data-v-56c44994] {\n  content: '';\n  position: absolute;\n  top: 11px;\n  left: 5px;\n  width: 12px;\n  height: 1px;\n  background: white;\n}\n.comment .title .close[data-v-56c44994]:before {\n  content: '';\n  position: absolute;\n  top: 11px;\n  left: 5px;\n  width: 12px;\n  height: 1px;\n  background: white;\n  transform: rotateZ(45deg);\n}\n.comment .title .close[data-v-56c44994]:after {\n  content: '';\n  position: absolute;\n  top: 11px;\n  left: 5px;\n  width: 12px;\n  height: 1px;\n  background: white;\n  transform: rotateZ(-45deg);\n}\n.comment .list[data-v-56c44994] {\n  width: 100%;\n  height: calc(100% - 88px);\n}\n.comment .list-empty[data-v-56c44994] {\n  width: 100%;\n  height: calc(100% - 88px);\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.comment .list-empty .img[data-v-56c44994] {\n  width: 80px;\n  height: 80px;\n  margin-bottom: 25px;\n}\n.comment .list-empty .text[data-v-56c44994] {\n  font-size: 14px;\n  color: #d8d8d8;\n}\n.comment .list-empty .other[data-v-56c44994] {\n  width: 110px;\n  height: 32px;\n  color: #4990e2;\n  border: 1px solid #4990e2;\n  border-radius: 4px;\n  margin-top: 10px;\n}\n.comment .reply-button[data-v-56c44994] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 48px;\n  background: white;\n  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.24);\n}\n.comment .reply-button .button[data-v-56c44994] {\n  width: 320px;\n  height: 40px;\n  border-radius: 4px;\n  background: #4990e2;\n  color: white;\n}\n", ""]);
 
 // exports
 
@@ -16486,7 +16486,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.item[data-v-74ecb92e] {\n  flex-direction: column;\n  justify-content: space-between;\n  min-height: 136px;\n}\n.item .user[data-v-74ecb92e],\n.item .title[data-v-74ecb92e],\n.item .top[data-v-74ecb92e],\n.item .bottom[data-v-74ecb92e] {\n  width: 100%;\n}\n.item .user[data-v-74ecb92e] {\n  display: flex;\n  align-items: center;\n  margin: 10px 0;\n  font-size: 12px;\n}\n.item .user .head[data-v-74ecb92e] {\n  width: 32px;\n  height: 32px;\n}\n.item .user .name[data-v-74ecb92e] {\n  margin-left: 7px;\n  color: #333;\n}\n.item .user .time[data-v-74ecb92e] {\n  margin-left: 10px;\n  color: #999;\n}\n.item .title[data-v-74ecb92e] {\n  font-size: 12px;\n  color: #333;\n}\n.item .top[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  font-size: 14px;\n  color: #333;\n  margin: 10px 0;\n}\n.item .top .img-mark[data-v-74ecb92e] {\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(56)) + ") 0 -278px / 40px auto no-repeat;\n}\n.item .imgs[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n}\n.item .imgs .img[data-v-74ecb92e] {\n  width: 140px;\n  height: 140px;\n}\n.item .overflow[data-v-74ecb92e] {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.item .bottom .good[data-v-74ecb92e],\n.item .bottom .rubbish[data-v-74ecb92e] {\n  padding: 0;\n}\n.item .bottom .rubbish[data-v-74ecb92e] {\n  margin-right: 40px;\n}\n.item .bottom .icon[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -476px / 40px no-repeat;\n}\n.item .bottom .icon-good[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -476px / 40px no-repeat;\n}\n.item .bottom .icon-good.marked[data-v-74ecb92e] {\n  background-position-y: -516px;\n}\n.item .bottom .icon-rubbish[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -476px / 40px no-repeat;\n  background-position-y: -556px;\n}\n.item .bottom .icon-rubbish.marked[data-v-74ecb92e] {\n  background-position-y: -596px;\n}\n.item .bottom .marked[data-v-74ecb92e] {\n  color: #4990e2;\n}\n", ""]);
+exports.push([module.i, "\n.item[data-v-74ecb92e] {\n  flex-direction: column;\n  justify-content: space-between;\n  min-height: 136px;\n}\n.item .user[data-v-74ecb92e],\n.item .title[data-v-74ecb92e],\n.item .top[data-v-74ecb92e],\n.item .bottom[data-v-74ecb92e] {\n  width: 100%;\n}\n.item .user[data-v-74ecb92e] {\n  display: flex;\n  align-items: center;\n  margin: 10px 0;\n  font-size: 12px;\n}\n.item .user .head[data-v-74ecb92e] {\n  width: 32px;\n  height: 32px;\n}\n.item .user .name[data-v-74ecb92e] {\n  margin-left: 7px;\n  color: #333;\n}\n.item .user .time[data-v-74ecb92e] {\n  margin-left: 10px;\n  color: #999;\n}\n.item .title span[data-v-74ecb92e] {\n  font-size: 12px;\n  color: #333;\n}\n.item .top[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  margin: 10px 0;\n}\n.item .top span[data-v-74ecb92e] {\n  font-size: 14px;\n  color: #333;\n}\n.item .top .img-mark[data-v-74ecb92e] {\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(56)) + ") 0 -278px / 40px auto no-repeat;\n}\n.item .imgs[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n}\n.item .imgs .img[data-v-74ecb92e] {\n  width: 140px;\n  height: 140px;\n}\n.item .overflow[data-v-74ecb92e] {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.item .bottom .good[data-v-74ecb92e],\n.item .bottom .rubbish[data-v-74ecb92e] {\n  padding: 0;\n}\n.item .bottom .good span[data-v-74ecb92e],\n.item .bottom .rubbish span[data-v-74ecb92e] {\n  font-size: 14px;\n  color: #333;\n}\n.item .bottom .rubbish[data-v-74ecb92e] {\n  margin-right: 40px;\n}\n.item .bottom .icon[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -476px / 40px no-repeat;\n}\n.item .bottom .icon-good[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -476px / 40px no-repeat;\n}\n.item .bottom .icon-good.marked[data-v-74ecb92e] {\n  background-position-y: -516px;\n}\n.item .bottom .icon-rubbish[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -476px / 40px no-repeat;\n  background-position-y: -556px;\n}\n.item .bottom .icon-rubbish.marked[data-v-74ecb92e] {\n  background-position-y: -596px;\n}\n.item .bottom .marked[data-v-74ecb92e] {\n  color: #4990e2;\n}\n", ""]);
 
 // exports
 
@@ -17746,7 +17746,7 @@ var render = function() {
         { staticClass: "title" },
         [
           _c("z-text", [_vm._v("专家留言区")]),
-          _c("z-button", { on: { click: _vm.close } }, [_vm._v("关闭")])
+          _c("z-button", { staticClass: "close", on: { click: _vm.close } })
         ],
         1
       ),
@@ -19870,7 +19870,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n#commentPlugin *[data-v-7ba5bd90] {\n  box-sizing: border-box;\n}\n.hidden[data-v-7ba5bd90] {\n  top: -1000px !important;\n}\n", ""]);
+exports.push([module.i, "\n.hidden[data-v-7ba5bd90] {\n  top: -1000px !important;\n}\n", ""]);
 
 // exports
 
@@ -19885,8 +19885,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("Topic", {
-    class: { hidden: !_vm.appShow },
-    attrs: { id: "commentPlugin" }
+    staticClass: "commentPlugin",
+    class: { hidden: !_vm.appShow }
   })
 }
 var staticRenderFns = []

@@ -32,27 +32,27 @@ export default {
       good: 2,
       rubbish: 2,
       imgs: [
-        'http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png',
-        'http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png',
-        'http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png',
+        "http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png",
+        "http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png",
+        "http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png"
       ]
-    }
+    };
   },
   computed: {
     hasImg() {
-      return this.item.imgs.length > 0
+      return this.item.imgs.length > 0;
     }
   },
   methods: {
     clickGood() {
-      this.haveGood = !this.haveGood
-      if(this.haveGood) this.good ++
-      else this.good --
+      this.haveGood = !this.haveGood;
+      if (this.haveGood) this.good++;
+      else this.good--;
     },
     clickRubbish() {
-      this.haveRubbish = !this.haveRubbish
-      if(this.haveRubbish) this.rubbish ++
-      else this.rubbish --
+      this.haveRubbish = !this.haveRubbish;
+      if (this.haveRubbish) this.rubbish++;
+      else this.rubbish--;
     }
   }
 };
@@ -97,22 +97,28 @@ export default {
   }
 
   .title {
-    font-size: 12px;
-    color: #333;
+    span {
+      font-size: 12px;
+      color: #333;
+    }
   }
 
   .top {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    font-size: 14px;
-    color: #333;
     margin: 10px 0;
+
+    span {
+      font-size: 14px;
+      color: #333;
+    }
 
     .img-mark {
       width: 20px;
       height: 20px;
-      background: url(../../../static/img/spirit.png) 0 -278px ~'/' 40px auto no-repeat;
+      background: url(../../../static/img/spirit.png) 0 -278px ~"/" 40px auto
+        no-repeat;
     }
   }
 
@@ -134,8 +140,14 @@ export default {
   }
 
   .bottom {
-    .good, .rubbish {
+    .good,
+    .rubbish {
       padding: 0;
+
+      span {
+        font-size: 14px;
+        color: #333;
+      }
     }
 
     .rubbish {
@@ -146,24 +158,24 @@ export default {
       display: inline-block;
       width: 20px;
       height: 20px;
-      background: url(/static/img/spirit.png) 4px -476px ~'/' 40px no-repeat;
+      background: url(/static/img/spirit.png) 4px -476px ~"/" 40px no-repeat;
     }
 
     .icon-good {
       .icon;
 
       &.marked {
-        background-position-y: -516px
+        background-position-y: -516px;
       }
     }
 
     .icon-rubbish {
       .icon;
-      background-position-y: -556px
+      background-position-y: -556px;
     }
 
     .icon-rubbish.marked {
-      background-position-y: -596px
+      background-position-y: -596px;
     }
 
     .marked {

@@ -2,7 +2,7 @@
   z-page.comment(:noHeader="true")
     z-view.title
       z-text 专家留言区
-      z-button(@click="close") 关闭
+      z-button.close(@click="close")
     template(v-if="renderContent")
       z-view.list-empty(v-if="comments.length < 1")
         z-img.img(src="/static/img/p_world.png")
@@ -79,12 +79,45 @@ export default {
   @pColor: #4990e2;
 
   .title {
+    position: relative;
     width: 100%;
     line-height: 40px;
     padding-left: 10px;
     background: #4990e2;
     color: white;
     font-size: 14px;
+    box-sizing: border-box;
+
+    .close {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      height: 24px;
+      width: 24px;
+      background: transparent;
+      border: 1px solid white;
+      border-radius: 12px;
+      
+      .content {
+        content: '';
+        position: absolute;
+        top: 11px;
+        left: 5px;
+        width: 12px;
+        height: 1px;
+        background: white;
+      }
+
+      &:before {
+        .content;
+        transform: rotateZ(45deg);
+      }
+
+      &:after {
+        .content;
+        transform: rotateZ(-45deg);        
+      }
+    }
   }
 
   .list {
