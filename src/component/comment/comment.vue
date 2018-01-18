@@ -16,7 +16,9 @@
           :item="item")
       z-view.reply-button
         z-button.button(@click="replyShow = true") 我要留言
-      p-reply(v-if="replyShow" @close="replyShow = false" @update="aComments" :pid="currentPid")
+      p-reply(v-if="replyShow" @close="replyShow = false" @update="aComments"
+        :info="currentReplyInfo"
+        @callback="currentCallback")
 </template>
 
 <script>
@@ -35,7 +37,8 @@ export default {
     return {
       comments: [],
       replyShow: false, // 回复框是否显示出来
-      currentPid: '' // 当前请求的 pid
+      currentReplyInfo: {}, // 当前零件的相关信息
+      currentCallback: null, // 评论成功的回调，来自外部
     };
   },
   mounted() {
@@ -45,13 +48,14 @@ export default {
     otherClick() {
       this.$router.go(-1);
     },
-    aComments(payload) {
-      if(payload) this.currentPid = payload.pid
+    aComments(payload, callback) {
+      if(payload) this.currentReplyInfo = payload
+      if(callback) this.currentCallback = callback
 
       this.configGlobal()
       this.comments = []
 
-      u.axiosPost("/ugc/parts/reply/comments/list", { pid: this.currentPid })
+      u.axiosPost("/ugc/parts/reply/comments/list", { pid: this.currentReplyInfo.pid })
         .then(res => {
           if(!res) return
 

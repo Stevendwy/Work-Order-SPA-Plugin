@@ -12143,6 +12143,8 @@ module.exports = g;
 //
 //
 //
+//
+//
 
 
 
@@ -12159,7 +12161,8 @@ module.exports = g;
     return {
       comments: [],
       replyShow: false, // 回复框是否显示出来
-      currentPid: '' // 当前请求的 pid
+      currentReplyInfo: {}, // 当前零件的相关信息
+      currentCallback: null // 评论成功的回调，来自外部
     };
   },
   mounted: function mounted() {
@@ -12170,15 +12173,16 @@ module.exports = g;
     otherClick: function otherClick() {
       this.$router.go(-1);
     },
-    aComments: function aComments(payload) {
+    aComments: function aComments(payload, callback) {
       var _this = this;
 
-      if (payload) this.currentPid = payload.pid;
+      if (payload) this.currentReplyInfo = payload;
+      if (callback) this.currentCallback = callback;
 
       this.configGlobal();
       this.comments = [];
 
-      __WEBPACK_IMPORTED_MODULE_3__u__["a" /* default */].axiosPost("/ugc/parts/reply/comments/list", { pid: this.currentPid }).then(function (res) {
+      __WEBPACK_IMPORTED_MODULE_3__u__["a" /* default */].axiosPost("/ugc/parts/reply/comments/list", { pid: this.currentReplyInfo.pid }).then(function (res) {
         if (!res) return;
 
         _this.comments = res.data;
@@ -12332,7 +12336,7 @@ module.exports = g;
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   components: {},
-  props: ["show", "pid"],
+  props: ["show", "info"],
   data: function data() {
     return {
       imgs: [],
@@ -12369,9 +12373,13 @@ module.exports = g;
     submit: function submit() {
       var _this = this;
 
+      this.$emit('callback'); // test
+      var info = this.info;
       var formData = new FormData();
-      formData.append("pid", this.pid);
-      formData.append("headname", 'test-headname');
+      formData.append("pid", info.pid);
+      formData.append("auth", info.auth);
+      formData.append("brandCode", info.brandCode);
+      formData.append("headname", info.headname);
       formData.append("text", this.commentConent);
       for (var i = 0, j = this.imgs.length; i < j; i++) {
         var file = this.imgs[i].file;
@@ -12385,6 +12393,7 @@ module.exports = g;
       }).then(function (res) {
         if (!res) return;
 
+        _this.$emit('callback');
         _this.$emit('update');
         _this.$emit('close');
       });
@@ -17849,12 +17858,13 @@ var render = function() {
             ),
             _vm.replyShow
               ? _c("p-reply", {
-                  attrs: { pid: _vm.currentPid },
+                  attrs: { info: _vm.currentReplyInfo },
                   on: {
                     close: function($event) {
                       _vm.replyShow = false
                     },
-                    update: _vm.aComments
+                    update: _vm.aComments,
+                    callback: _vm.currentCallback
                   }
                 })
               : _vm._e()

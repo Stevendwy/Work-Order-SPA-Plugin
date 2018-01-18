@@ -22,7 +22,7 @@ import u from "../../u";
 
 export default {
   components: {},
-  props: ["show", "pid"],
+  props: ["show", "info"],
   data() {
     return {
       imgs: [],
@@ -56,9 +56,13 @@ export default {
       this.commentConent = value
     },
     submit() {
+        this.$emit('callback') // test
+      let info = this.info
       let formData = new FormData()
-      formData.append("pid", this.pid);
-      formData.append("headname", 'test-headname');
+      formData.append("pid", info.pid);
+      formData.append("auth", info.auth);
+      formData.append("brandCode", info.brandCode);
+      formData.append("headname", info.headname);
       formData.append("text", this.commentConent);
       for (let i = 0, j = this.imgs.length; i < j; i ++) {
         let file = this.imgs[i].file
@@ -72,6 +76,7 @@ export default {
       }).then(res => {
         if(!res) return
 
+        this.$emit('callback')
         this.$emit('update')
         this.$emit('close')
       })
