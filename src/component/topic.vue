@@ -1,5 +1,5 @@
 <template lang="pug">
-  .topic
+  .topic(@click="close")
     z-root-page.homepage(title='话题')
       z-list(:items="topics" style="cursor: pointer;"
         @itemClick="itemClick")
@@ -10,18 +10,18 @@
 </template>
 
 <script>
-import u from '../u'
-import Vuex from 'vuex'
+import u from "../u";
+import Vuex from "vuex";
 
 export default {
   data() {
     return {
       transitionName: "push",
-      hasEnter: this.$route.path === '/' ? false : undefined
+      hasEnter: this.$route.path === "/" ? false : undefined
     };
   },
   computed: {
-    ...Vuex.mapState(['topics'])
+    ...Vuex.mapState(["topics"])
   },
   watch: {
     $route(to, from) {
@@ -29,14 +29,13 @@ export default {
       const fromDepth = from.path.split("/").length;
       if (to.path === "/") {
         this.transitionName = "pop";
-        this.aTopics()
-      }
-      else if (from.path === "/") this.transitionName = "push";
+        this.aTopics();
+      } else if (from.path === "/") this.transitionName = "push";
       else this.transitionName = toDepth > fromDepth ? "push" : "pop";
     }
   },
   methods: {
-    ...Vuex.mapActions(['aTopics']),
+    ...Vuex.mapActions(["aTopics"]),
     itemClick(item) {
       this.$router.push("/comment");
     },
@@ -45,6 +44,9 @@ export default {
     },
     afterEnter(el, done) {
       this.hasEnter = true;
+    },
+    close() {
+      window.VM.show = false
     }
   }
 };
@@ -53,14 +55,11 @@ export default {
 <style scoped lang="less">
 .topic {
   position: fixed;
-  top: 130px;
   bottom: 0;
   left: 0;
-  width: 37.8%;
-  min-width: 390px;
-  // height: @pHeight;
+  width: 100%;
+  height: 100%;
   background: white;
-  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.24);
   overflow-x: hidden;
   overflow-y: scroll;
   z-index: 999;
@@ -70,10 +69,17 @@ export default {
   @pHeight: 426px;
 
   .homepage {
-    .content>.page {
+    position: absolute;
+    top: 130px;
+    bottom: 0;
+    left: 0;
+    width: 37.8%;
+    min-width: 390px;
+    height: auto;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.24);
+
+    .content > .page {
       position: absolute;
-      // width: @pWidth;
-      // height: @pHeight;
       width: 100%;
       height: 100%;
     }

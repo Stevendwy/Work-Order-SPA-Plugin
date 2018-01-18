@@ -38,7 +38,7 @@ export default {
       comments: [],
       replyShow: false, // 回复框是否显示出来
       currentReplyInfo: {}, // 当前零件的相关信息
-      currentCallback: null, // 评论成功的回调，来自外部
+      currentCallback: function() {}, // 评论成功的回调，来自外部
     };
   },
   mounted() {

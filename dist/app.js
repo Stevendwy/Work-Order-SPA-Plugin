@@ -12168,7 +12168,7 @@ module.exports = g;
       comments: [],
       replyShow: false, // 回复框是否显示出来
       currentReplyInfo: {}, // 当前零件的相关信息
-      currentCallback: null // 评论成功的回调，来自外部
+      currentCallback: function currentCallback() {} // 评论成功的回调，来自外部
     };
   },
   mounted: function mounted() {
@@ -12744,11 +12744,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
   data: function data() {
     return {
       transitionName: "push",
-      hasEnter: this.$route.path === '/' ? false : undefined
+      hasEnter: this.$route.path === "/" ? false : undefined
     };
   },
 
-  computed: _extends({}, __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].mapState(['topics'])),
+  computed: _extends({}, __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].mapState(["topics"])),
   watch: {
     $route: function $route(to, from) {
       var toDepth = to.path.split("/").length;
@@ -12759,7 +12759,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       } else if (from.path === "/") this.transitionName = "push";else this.transitionName = toDepth > fromDepth ? "push" : "pop";
     }
   },
-  methods: _extends({}, __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].mapActions(['aTopics']), {
+  methods: _extends({}, __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].mapActions(["aTopics"]), {
     itemClick: function itemClick(item) {
       this.$router.push("/comment");
     },
@@ -12768,6 +12768,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     },
     afterEnter: function afterEnter(el, done) {
       this.hasEnter = true;
+    },
+    close: function close() {
+      window.VM.show = false;
     }
   })
 });
@@ -18123,7 +18126,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.topic[data-v-655f0f58] {\n  position: fixed;\n  top: 130px;\n  bottom: 0;\n  left: 0;\n  width: 37.8%;\n  min-width: 390px;\n  background: white;\n  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.24);\n  overflow-x: hidden;\n  overflow-y: scroll;\n  z-index: 999;\n}\n.topic .homepage .content > .page[data-v-655f0f58] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.topic .homepage .push-enter[data-v-655f0f58] {\n  transform: translateX(390px);\n  opacity: 0.8;\n}\n.topic .homepage .push-enter-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n}\n.topic .homepage .push-enter-to[data-v-655f0f58],\n.topic .homepage .push-leave[data-v-655f0f58] {\n  transform: translateX(0);\n  opacity: 1;\n}\n.topic .homepage .push-leave-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n}\n.topic .homepage .push-leave-to[data-v-655f0f58],\n.topic .homepage .pop-enter[data-v-655f0f58] {\n  transform: translateX(-195px);\n  opacity: 0.8;\n}\n.topic .homepage .pop-enter-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n}\n.topic .homepage .pop-enter-to[data-v-655f0f58],\n.topic .homepage .pop-leave[data-v-655f0f58] {\n  transform: translateX(0);\n  opacity: 1;\n}\n.topic .homepage .pop-leave-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n  z-index: 999;\n}\n.topic .homepage .pop-leave-to[data-v-655f0f58] {\n  transform: translateX(390px);\n}\n", ""]);
+exports.push([module.i, "\n.topic[data-v-655f0f58] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: white;\n  overflow-x: hidden;\n  overflow-y: scroll;\n  z-index: 999;\n}\n.topic .homepage[data-v-655f0f58] {\n  position: absolute;\n  top: 130px;\n  bottom: 0;\n  left: 0;\n  width: 37.8%;\n  min-width: 390px;\n  height: auto;\n  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.24);\n}\n.topic .homepage .content > .page[data-v-655f0f58] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.topic .homepage .push-enter[data-v-655f0f58] {\n  transform: translateX(390px);\n  opacity: 0.8;\n}\n.topic .homepage .push-enter-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n}\n.topic .homepage .push-enter-to[data-v-655f0f58],\n.topic .homepage .push-leave[data-v-655f0f58] {\n  transform: translateX(0);\n  opacity: 1;\n}\n.topic .homepage .push-leave-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n}\n.topic .homepage .push-leave-to[data-v-655f0f58],\n.topic .homepage .pop-enter[data-v-655f0f58] {\n  transform: translateX(-195px);\n  opacity: 0.8;\n}\n.topic .homepage .pop-enter-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n}\n.topic .homepage .pop-enter-to[data-v-655f0f58],\n.topic .homepage .pop-leave[data-v-655f0f58] {\n  transform: translateX(0);\n  opacity: 1;\n}\n.topic .homepage .pop-leave-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n  z-index: 999;\n}\n.topic .homepage .pop-leave-to[data-v-655f0f58] {\n  transform: translateX(390px);\n}\n", ""]);
 
 // exports
 
@@ -18139,7 +18142,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "topic" },
+    { staticClass: "topic", on: { click: _vm.close } },
     [
       _c(
         "z-root-page",
