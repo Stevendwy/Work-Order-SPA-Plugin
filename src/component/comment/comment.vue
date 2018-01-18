@@ -66,10 +66,7 @@ export default {
       // 请求才配置，否则第一次就配置获取不到对象
       if(window.VM) window.VM.show = true
       // 配置全局对接 api
-      if(!window.closeCommentPlugin) window.closeCommentPlugin = () => {
-        this.replyShow = true
-        window.VM.show = false
-      }
+      if(!window.closeCommentPlugin) window.closeCommentPlugin = this.close
     },
     close(){
       this.replyShow = false
