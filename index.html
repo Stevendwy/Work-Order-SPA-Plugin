@@ -13,7 +13,12 @@
 
   <script async src="dist/app.js"></script>
   <script>
-    // console.log(VM.aTopics({ pid: '110' }))
+    setTimeout(() => {
+      commentPluginShowWithParams({pid: '110'})
+      setTimeout(() => {
+        // closeCommentPlugin()
+      }, 1000);
+    }, 3000);
   </script>
 </body>
 

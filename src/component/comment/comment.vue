@@ -2,6 +2,7 @@
   z-page.comment(:noHeader="true")
     z-view.title
       z-text 专家留言区
+      z-button(@click="close") 关闭
     template(v-if="renderContent")
       z-view.list-empty(v-if="comments.length < 1")
         z-img.img(src="/static/img/p_world.png")
@@ -37,19 +38,33 @@ export default {
     };
   },
   mounted() {
-    this.aComments();
+    window.commentPluginShowWithParams = this.aComments
   },
   methods: {
     otherClick() {
       this.$router.go(-1);
     },
-    aComments() {
-      u.axiosPost("/ugc/parts/reply/comments/list", { pid: "110" })
+    aComments(payload) {
+      
+      this.configGlobal()
+      this.comments = []
+
+      let pid = payload.pid
+      u.axiosPost("/ugc/parts/reply/comments/list", { pid })
         .then(res => {
           if(!res) return
 
           this.comments = res.data
         })
+    },
+    configGlobal() {
+      // 请求才配置，否则第一次就配置获取不到对象
+      if(window.VM) window.VM.show = true
+      // 配置全局对接 api
+      if(!window.closeCommentPlugin) window.closeCommentPlugin = () => window.VM.show = false
+    },
+    close(){
+      window.VM.show = false
     }
   }
 };

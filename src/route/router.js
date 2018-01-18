@@ -7,7 +7,8 @@ Vue.use(VueRouter)
 
 export default new VueRouter({
   routes: [
-    {path: '/empty', alias: '/', component: Empty},
-    {path: '/comment', component: Comment},
+    {path: '/comment', alias: '/', component: Comment},
+    // {path: '/empty', alias: '/', component: Empty},
+    // {path: '/comment', component: Comment},
   ]
 })

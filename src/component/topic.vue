@@ -53,14 +53,15 @@ export default {
 <style scoped lang="less">
 .topic {
   position: fixed;
-  top: 8px;
-  left: 8px;
+  top: e('calc(50% - 213px)');
+  left: e('calc(50% - 195px)');
   width: @pWidth;
   height: @pHeight;
   background: white;
   box-shadow: 0 1px 8px 0 rgba(0,0,0,0.24);
   overflow-x: hidden;
   overflow-y: scroll;
+  z-index: 999;
 
   @d8line: 1px solid #d8d8d8;
   @pWidth: 390px;

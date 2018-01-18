@@ -13,7 +13,8 @@ export default {
     }
   },
   mounted() {
-    if(this.afterEnter === undefined) this.build()
+    // if(this.afterEnter === undefined) this.build() // 上线版本，根路径为评论，不用判断
+    this.build()
   },
   methods: {
     build() {

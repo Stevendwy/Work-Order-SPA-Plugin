@@ -19,7 +19,10 @@ window.VM = new Vue({
   el: '#vue',
   store,
   router,
-  template: '<App />',
+  template: '<App :appShow="show" />',
+  data: {
+    show: false
+  },
   components: { App },
   mounted() {
     // this.aTopics()

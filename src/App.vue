@@ -1,33 +1,38 @@
 <template lang="pug">
-  Topic
+  Topic#commentPlugin(:class="{hidden: !appShow}")
 </template>
 
 <script>
-import Topic from './component/topic.vue'
+import Topic from "./component/topic.vue";
 
 export default {
+  props: ["appShow"],
   components: {
     Topic
   },
   data() {
-    return {
-      
-    };
+    return {};
   }
 };
 </script>
 
-<style lang='less'>
-* {
-  box-sizing: border-box;
+<style lang='less' scoped>
+#commentPlugin {
+  * {
+    box-sizing: border-box;
+  }
 }
 
-html,
-body {
-  height: 100%;
+.hidden {
+  top: -1000px !important;
 }
 
-body {
-  margin: 0;
-}
+// html,
+// body {
+//   height: 100%;
+// }
+
+// body {
+//   margin: 0;
+// }
 </style>
