@@ -12273,7 +12273,11 @@ module.exports = g;
         if (!res) return;
 
         _this.haveGood = !_this.haveGood;
-        if (_this.haveGood) _this.good++;else _this.good--;
+        if (_this.haveGood) {
+          _this.good++;
+          _this.rubbish--;
+          _this.haveRubbish = false;
+        } else _this.good--;
       });
     },
     clickRubbish: function clickRubbish() {
@@ -12288,7 +12292,11 @@ module.exports = g;
         if (!res) return;
 
         _this2.haveRubbish = !_this2.haveRubbish;
-        if (_this2.haveRubbish) _this2.rubbish++;else _this2.rubbish--;
+        if (_this2.haveRubbish) {
+          _this2.rubbish++;
+          _this2.good--;
+          _this2.haveGood = false;
+        } else _this2.rubbish--;
       });
     }
   }

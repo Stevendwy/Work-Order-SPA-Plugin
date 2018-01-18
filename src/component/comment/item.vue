@@ -53,7 +53,7 @@ export default {
       let status = this.item.comment_status;
       if (status === "up") this.haveGood = true;
       else if (status === "dw") this.haveRubbish = true;
-      
+
       let item = this.item;
       this.good = item.like;
       this.rubbish = item.dislike;
@@ -68,7 +68,11 @@ export default {
         if (!res) return;
 
         this.haveGood = !this.haveGood;
-        if (this.haveGood) this.good++;
+        if (this.haveGood) {
+          this.good++
+          this.rubbish--
+          this.haveRubbish = false
+        }
         else this.good--;
       });
     },
@@ -82,8 +86,12 @@ export default {
         if (!res) return;
 
         this.haveRubbish = !this.haveRubbish;
-        if (this.haveRubbish) this.rubbish++;
-        else this.rubbish--;
+        if (this.haveRubbish) {
+          this.rubbish++
+          this.good--
+          this.haveGood = false
+        }
+        else this.rubbish--
       });
     }
   }
