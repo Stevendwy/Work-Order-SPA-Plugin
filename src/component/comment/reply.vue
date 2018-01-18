@@ -5,7 +5,7 @@
         @click="close")
       z-textarea.textarea(placeholder="输入你的留言内容，建议精简内容，以便获得更多查看" :maxlength="120" initialValue="" :autofocus="true" @updateValue="updateValue")
       z-view.explain
-        z-img.img(:src="'#'")
+        z-view.img-mark
         z-text.remind 上传零件实物图片奖励10个专家积分
       z-view.uploads
         z-img.img(v-for="(img, index) of imgs" :key="index"
@@ -127,13 +127,17 @@ export default {
     }
 
     .explain {
+      display: flex;
+      align-items: center;
       width: 100%;
-      padding-left: 10px;
+      padding-left: 20px;
       margin: 10px 0;
 
-      .img {
-        width: 17px;
-        height: auto;
+      .img-mark {
+        width: 20px;
+        height: 20px;
+        background: url(../../../static/img/spirit.png) 0 -278px ~"/" 40px auto
+          no-repeat;
       }
 
       .remind {
