@@ -56,7 +56,6 @@ export default {
       this.commentConent = value
     },
     submit() {
-        this.$emit('callback') // test
       let info = this.info
       let formData = new FormData()
       formData.append("pid", info.pid);

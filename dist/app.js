@@ -12373,7 +12373,6 @@ module.exports = g;
     submit: function submit() {
       var _this = this;
 
-      this.$emit('callback'); // test
       var info = this.info;
       var formData = new FormData();
       formData.append("pid", info.pid);
