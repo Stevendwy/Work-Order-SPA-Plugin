@@ -70,7 +70,7 @@ export default {
   .homepage {
     position: absolute;
     top: 130px;
-    bottom: 0;
+    bottom: 40px;
     left: 0;
     width: 37.8%;
     min-width: 390px;

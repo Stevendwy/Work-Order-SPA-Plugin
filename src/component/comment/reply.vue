@@ -125,8 +125,10 @@ export default {
     width: 100%;
     // width: @pWidth;
     height: @pHeight - 80px;
+    padding: 0 10px;
     background: white;
     box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.24);
+    box-sizing: border-box;
 
     .triangle {
       margin: 7px 0;
@@ -134,7 +136,8 @@ export default {
     }
 
     .textarea {
-      width: 370px;
+      width: 100%;
+      // width: 370px;
       height: 120px;
       border: 1px solid #d8d8d8;
       border-radius: 4px;
@@ -144,7 +147,6 @@ export default {
       display: flex;
       align-items: center;
       width: 100%;
-      padding-left: 20px;
       margin: 10px 0;
 
       .img-mark {
@@ -164,7 +166,6 @@ export default {
       display: flex;
       width: 100%;
       height: 80px;
-      padding: 0 10px;
       box-sizing: border-box;
 
       .img {
