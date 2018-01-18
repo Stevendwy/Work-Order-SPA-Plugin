@@ -13417,7 +13417,7 @@ window.VM = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   router: __WEBPACK_IMPORTED_MODULE_2__route_router__["a" /* default */],
   template: '<App :appShow="show" />',
   data: {
-    show: true
+    show: false
   },
   components: { App: __WEBPACK_IMPORTED_MODULE_4__App_vue__["a" /* default */] },
   mounted: function mounted() {

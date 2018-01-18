@@ -21,7 +21,7 @@ window.VM = new Vue({
   router,
   template: '<App :appShow="show" />',
   data: {
-    show: true
+    show: false
   },
   components: { App },
   mounted() {
