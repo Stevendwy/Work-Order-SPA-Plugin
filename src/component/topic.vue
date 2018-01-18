@@ -53,8 +53,8 @@ export default {
 <style scoped lang="less">
 .topic {
   position: fixed;
-  top: e('calc(50% - 213px)');
-  left: e('calc(50% - 195px)');
+  top: 130px;
+  left: 0;
   width: @pWidth;
   height: @pHeight;
   background: white;
