@@ -4,7 +4,7 @@
       z-view.head
       z-text.name {{item.replier}}
       z-text.time {{item.create_time}}
-    z-view.title
+    z-view.title.overflow
       z-text {{item.headname}}
     z-view.top(:class="{overflow: fold}")
       z-view.img-mark(v-if="hasImg")

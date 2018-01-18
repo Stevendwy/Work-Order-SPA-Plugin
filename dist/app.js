@@ -17448,7 +17448,7 @@ var render = function() {
       ),
       _c(
         "z-view",
-        { staticClass: "title" },
+        { staticClass: "title overflow" },
         [_c("z-text", [_vm._v(_vm._s(_vm.item.headname))])],
         1
       ),
