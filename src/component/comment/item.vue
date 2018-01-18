@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import u from "../../u";
+
 export default {
   props: ["item"],
   data() {
@@ -29,8 +31,8 @@ export default {
       fold: true, // 是否折叠，默认折叠
       haveGood: false,
       haveRubbish: false,
-      good: 2,
-      rubbish: 2,
+      good: 0,
+      rubbish: 0,
       imgs: [
         "http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png",
         "http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png",
@@ -43,16 +45,46 @@ export default {
       return this.item.imgs.length > 0;
     }
   },
+  mounted() {
+    this.configData();
+  },
   methods: {
+    configData() {
+      let status = this.item.comment_status;
+      if (status === "up") this.haveGood = true;
+      else if (status === "dw") this.haveRubbish = true;
+      
+      let item = this.item;
+      this.good = item.like;
+      this.rubbish = item.dislike;
+    },
     clickGood() {
-      this.haveGood = !this.haveGood;
-      if (this.haveGood) this.good++;
-      else this.good--;
+      let req = {
+        reply_id: this.item.id,
+        action: this.haveGood ? "cancel" : "submit"
+      };
+
+      u.axiosPost("ugc/parts/reply/thumbup", req).then(res => {
+        if (!res) return;
+
+        this.haveGood = !this.haveGood;
+        if (this.haveGood) this.good++;
+        else this.good--;
+      });
     },
     clickRubbish() {
-      this.haveRubbish = !this.haveRubbish;
-      if (this.haveRubbish) this.rubbish++;
-      else this.rubbish--;
+      let req = {
+        reply_id: this.item.id,
+        action: this.haveRubbish ? "cancel" : "submit"
+      };
+
+      u.axiosPost("ugc/parts/reply/thumbdw", req).then(res => {
+        if (!res) return;
+
+        this.haveRubbish = !this.haveRubbish;
+        if (this.haveRubbish) this.rubbish++;
+        else this.rubbish--;
+      });
     }
   }
 };
@@ -83,7 +115,8 @@ export default {
     .head {
       width: 32px;
       height: 32px;
-      background: url(../../../static/img/spirit.png) 4px -574px ~'/' 32px auto no-repeat;
+      background: url(../../../static/img/spirit.png) 4px -574px ~"/" 32px auto
+        no-repeat;
     }
 
     .name {

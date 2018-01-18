@@ -12203,6 +12203,7 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__u__ = __webpack_require__(5);
 //
 //
 //
@@ -12227,6 +12228,8 @@ module.exports = g;
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["a"] = ({
   props: ["item"],
   data: function data() {
@@ -12234,8 +12237,8 @@ module.exports = g;
       fold: true, // 是否折叠，默认折叠
       haveGood: false,
       haveRubbish: false,
-      good: 2,
-      rubbish: 2,
+      good: 0,
+      rubbish: 0,
       imgs: ["http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png", "http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png", "http://src.onlinedown.net/images/h_imges/wdj/2/logo/1a4951f5a526f78d0bb4a9555ef93609_256_256.png"]
     };
   },
@@ -12245,14 +12248,48 @@ module.exports = g;
       return this.item.imgs.length > 0;
     }
   },
+  mounted: function mounted() {
+    this.configData();
+  },
+
   methods: {
+    configData: function configData() {
+      var status = this.item.comment_status;
+      if (status === "up") this.haveGood = true;else if (status === "dw") this.haveRubbish = true;
+
+      var item = this.item;
+      this.good = item.like;
+      this.rubbish = item.dislike;
+    },
     clickGood: function clickGood() {
-      this.haveGood = !this.haveGood;
-      if (this.haveGood) this.good++;else this.good--;
+      var _this = this;
+
+      var req = {
+        reply_id: this.item.id,
+        action: this.haveGood ? "cancel" : "submit"
+      };
+
+      __WEBPACK_IMPORTED_MODULE_0__u__["a" /* default */].axiosPost("ugc/parts/reply/thumbup", req).then(function (res) {
+        if (!res) return;
+
+        _this.haveGood = !_this.haveGood;
+        if (_this.haveGood) _this.good++;else _this.good--;
+      });
     },
     clickRubbish: function clickRubbish() {
-      this.haveRubbish = !this.haveRubbish;
-      if (this.haveRubbish) this.rubbish++;else this.rubbish--;
+      var _this2 = this;
+
+      var req = {
+        reply_id: this.item.id,
+        action: this.haveRubbish ? "cancel" : "submit"
+      };
+
+      __WEBPACK_IMPORTED_MODULE_0__u__["a" /* default */].axiosPost("ugc/parts/reply/thumbdw", req).then(function (res) {
+        if (!res) return;
+
+        _this2.haveRubbish = !_this2.haveRubbish;
+        if (_this2.haveRubbish) _this2.rubbish++;else _this2.rubbish--;
+      });
     }
   }
 });
