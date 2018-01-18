@@ -5,10 +5,10 @@
       z-text.name {{item.replier}}
       z-text.time {{item.create_time}}
     z-view.title.overflow
-      z-text {{item.headname}}
+      z-text.light {{item.headname}}
     z-view.top(:class="{overflow: fold}")
       z-view.img-mark(v-if="hasImg")
-      z-text {{item.text}}
+      z-text.bold {{item.text}}
     z-view.imgs(v-show="!fold")
       z-img.img(v-for="(img, index) of item.imgs" :key="index"
         :src="fold ? '#' : img")
@@ -143,9 +143,14 @@ export default {
   }
 
   .title {
-    span {
+    // span {
+    //   font-size: 12px;
+    //   color: #666;
+    // }
+
+    .light {
       font-size: 12px;
-      color: #333;
+      color: #666;
     }
   }
 
@@ -165,6 +170,10 @@ export default {
       height: 20px;
       background: url(../../../static/img/spirit.png) 0 -278px ~"/" 40px auto
         no-repeat;
+    }
+
+    .bold {
+      font-weight: 800;
     }
   }
 

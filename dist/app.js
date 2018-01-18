@@ -16585,7 +16585,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.item[data-v-74ecb92e] {\n  flex-direction: column;\n  justify-content: space-between;\n  min-height: 136px;\n}\n.item .user[data-v-74ecb92e],\n.item .title[data-v-74ecb92e],\n.item .top[data-v-74ecb92e],\n.item .bottom[data-v-74ecb92e] {\n  width: 100%;\n}\n.item .user[data-v-74ecb92e] {\n  display: flex;\n  align-items: center;\n  margin: 10px 0;\n  font-size: 12px;\n}\n.item .user .head[data-v-74ecb92e] {\n  width: 32px;\n  height: 32px;\n  background: url(" + escape(__webpack_require__(8)) + ") 4px -574px / 32px auto no-repeat;\n}\n.item .user .name[data-v-74ecb92e] {\n  margin-left: 7px;\n  color: #333;\n}\n.item .user .time[data-v-74ecb92e] {\n  margin-left: 10px;\n  color: #999;\n}\n.item .title span[data-v-74ecb92e] {\n  font-size: 12px;\n  color: #333;\n}\n.item .top[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  margin: 10px 0;\n}\n.item .top span[data-v-74ecb92e] {\n  font-size: 14px;\n  color: #333;\n}\n.item .top .img-mark[data-v-74ecb92e] {\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(8)) + ") 0 -278px / 40px auto no-repeat;\n}\n.item .imgs[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.item .imgs .img[data-v-74ecb92e] {\n  width: 140px;\n  height: 140px;\n}\n.item .overflow[data-v-74ecb92e] {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.item .bottom .good[data-v-74ecb92e],\n.item .bottom .rubbish[data-v-74ecb92e] {\n  padding: 0;\n}\n.item .bottom .good span[data-v-74ecb92e],\n.item .bottom .rubbish span[data-v-74ecb92e] {\n  font-size: 14px;\n  color: #333;\n}\n.item .bottom .rubbish[data-v-74ecb92e] {\n  margin-right: 40px;\n}\n.item .bottom .icon[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -476px / 40px no-repeat;\n}\n.item .bottom .icon-good[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -476px / 40px no-repeat;\n}\n.item .bottom .icon-good.marked[data-v-74ecb92e] {\n  background-position-y: -516px;\n}\n.item .bottom .icon-rubbish[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -476px / 40px no-repeat;\n  background-position-y: -556px;\n}\n.item .bottom .icon-rubbish.marked[data-v-74ecb92e] {\n  background-position-y: -596px;\n}\n.item .bottom .marked[data-v-74ecb92e] {\n  color: #4990e2;\n}\n", ""]);
+exports.push([module.i, "\n.item[data-v-74ecb92e] {\n  flex-direction: column;\n  justify-content: space-between;\n  min-height: 136px;\n}\n.item .user[data-v-74ecb92e],\n.item .title[data-v-74ecb92e],\n.item .top[data-v-74ecb92e],\n.item .bottom[data-v-74ecb92e] {\n  width: 100%;\n}\n.item .user[data-v-74ecb92e] {\n  display: flex;\n  align-items: center;\n  margin: 10px 0;\n  font-size: 12px;\n}\n.item .user .head[data-v-74ecb92e] {\n  width: 32px;\n  height: 32px;\n  background: url(" + escape(__webpack_require__(8)) + ") 4px -574px / 32px auto no-repeat;\n}\n.item .user .name[data-v-74ecb92e] {\n  margin-left: 7px;\n  color: #333;\n}\n.item .user .time[data-v-74ecb92e] {\n  margin-left: 10px;\n  color: #999;\n}\n.item .title .light[data-v-74ecb92e] {\n  font-size: 12px;\n  color: #666;\n}\n.item .top[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  margin: 10px 0;\n}\n.item .top span[data-v-74ecb92e] {\n  font-size: 14px;\n  color: #333;\n}\n.item .top .img-mark[data-v-74ecb92e] {\n  width: 20px;\n  height: 20px;\n  background: url(" + escape(__webpack_require__(8)) + ") 0 -278px / 40px auto no-repeat;\n}\n.item .top .bold[data-v-74ecb92e] {\n  font-weight: 800;\n}\n.item .imgs[data-v-74ecb92e] {\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.item .imgs .img[data-v-74ecb92e] {\n  width: 140px;\n  height: 140px;\n}\n.item .overflow[data-v-74ecb92e] {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.item .bottom .good[data-v-74ecb92e],\n.item .bottom .rubbish[data-v-74ecb92e] {\n  padding: 0;\n}\n.item .bottom .good span[data-v-74ecb92e],\n.item .bottom .rubbish span[data-v-74ecb92e] {\n  font-size: 14px;\n  color: #333;\n}\n.item .bottom .rubbish[data-v-74ecb92e] {\n  margin-right: 40px;\n}\n.item .bottom .icon[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -476px / 40px no-repeat;\n}\n.item .bottom .icon-good[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -476px / 40px no-repeat;\n}\n.item .bottom .icon-good.marked[data-v-74ecb92e] {\n  background-position-y: -516px;\n}\n.item .bottom .icon-rubbish[data-v-74ecb92e] {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  background: url(/static/img/spirit.png) 4px -476px / 40px no-repeat;\n  background-position-y: -556px;\n}\n.item .bottom .icon-rubbish.marked[data-v-74ecb92e] {\n  background-position-y: -596px;\n}\n.item .bottom .marked[data-v-74ecb92e] {\n  color: #4990e2;\n}\n", ""]);
 
 // exports
 
@@ -17461,7 +17461,11 @@ var render = function() {
       _c(
         "z-view",
         { staticClass: "title overflow" },
-        [_c("z-text", [_vm._v(_vm._s(_vm.item.headname))])],
+        [
+          _c("z-text", { staticClass: "light" }, [
+            _vm._v(_vm._s(_vm.item.headname))
+          ])
+        ],
         1
       ),
       _c(
@@ -17469,7 +17473,7 @@ var render = function() {
         { staticClass: "top", class: { overflow: _vm.fold } },
         [
           _vm.hasImg ? _c("z-view", { staticClass: "img-mark" }) : _vm._e(),
-          _c("z-text", [_vm._v(_vm._s(_vm.item.text))])
+          _c("z-text", { staticClass: "bold" }, [_vm._v(_vm._s(_vm.item.text))])
         ],
         1
       ),
