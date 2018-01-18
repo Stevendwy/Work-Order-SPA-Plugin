@@ -12677,11 +12677,21 @@ module.exports = Cancel;
         formData.append("filename", file);
       }
 
+      var mum = document.querySelector('#mum');
+      if (mum) {
+        mum.style.display = 'block';
+        setTimeout(function () {
+          mum.style.display = 'none';
+        }, 3000);
+      }
+
       __WEBPACK_IMPORTED_MODULE_0__u__["a" /* default */].axiosForm("/ugc/parts/reply/leave_comments", formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
+        if (mum) mum.style.display = 'none';
+
         if (!res) return;
 
         _this.$emit('callback');
@@ -18130,7 +18140,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.topic[data-v-655f0f58] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: white;\n  overflow-x: hidden;\n  overflow-y: scroll;\n  z-index: 999;\n}\n.topic .homepage[data-v-655f0f58] {\n  position: absolute;\n  top: 130px;\n  bottom: 0;\n  left: 0;\n  width: 37.8%;\n  min-width: 390px;\n  height: auto;\n  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.24);\n}\n.topic .homepage .content > .page[data-v-655f0f58] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.topic .homepage .push-enter[data-v-655f0f58] {\n  transform: translateX(390px);\n  opacity: 0.8;\n}\n.topic .homepage .push-enter-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n}\n.topic .homepage .push-enter-to[data-v-655f0f58],\n.topic .homepage .push-leave[data-v-655f0f58] {\n  transform: translateX(0);\n  opacity: 1;\n}\n.topic .homepage .push-leave-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n}\n.topic .homepage .push-leave-to[data-v-655f0f58],\n.topic .homepage .pop-enter[data-v-655f0f58] {\n  transform: translateX(-195px);\n  opacity: 0.8;\n}\n.topic .homepage .pop-enter-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n}\n.topic .homepage .pop-enter-to[data-v-655f0f58],\n.topic .homepage .pop-leave[data-v-655f0f58] {\n  transform: translateX(0);\n  opacity: 1;\n}\n.topic .homepage .pop-leave-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n  z-index: 999;\n}\n.topic .homepage .pop-leave-to[data-v-655f0f58] {\n  transform: translateX(390px);\n}\n", ""]);
+exports.push([module.i, "\n.topic[data-v-655f0f58] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n  overflow-y: scroll;\n  z-index: 999;\n}\n.topic .homepage[data-v-655f0f58] {\n  position: absolute;\n  top: 130px;\n  bottom: 0;\n  left: 0;\n  width: 37.8%;\n  min-width: 390px;\n  height: auto;\n  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.24);\n  background: white;\n}\n.topic .homepage .content > .page[data-v-655f0f58] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.topic .homepage .push-enter[data-v-655f0f58] {\n  transform: translateX(390px);\n  opacity: 0.8;\n}\n.topic .homepage .push-enter-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n}\n.topic .homepage .push-enter-to[data-v-655f0f58],\n.topic .homepage .push-leave[data-v-655f0f58] {\n  transform: translateX(0);\n  opacity: 1;\n}\n.topic .homepage .push-leave-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n}\n.topic .homepage .push-leave-to[data-v-655f0f58],\n.topic .homepage .pop-enter[data-v-655f0f58] {\n  transform: translateX(-195px);\n  opacity: 0.8;\n}\n.topic .homepage .pop-enter-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n}\n.topic .homepage .pop-enter-to[data-v-655f0f58],\n.topic .homepage .pop-leave[data-v-655f0f58] {\n  transform: translateX(0);\n  opacity: 1;\n}\n.topic .homepage .pop-leave-active[data-v-655f0f58] {\n  transition: all 0.3s ease;\n  z-index: 999;\n}\n.topic .homepage .pop-leave-to[data-v-655f0f58] {\n  transform: translateX(390px);\n}\n", ""]);
 
 // exports
 

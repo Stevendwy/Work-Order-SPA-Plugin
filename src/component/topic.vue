@@ -59,7 +59,6 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: white;
   overflow-x: hidden;
   overflow-y: scroll;
   z-index: 999;
@@ -77,6 +76,7 @@ export default {
     min-width: 390px;
     height: auto;
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.24);
+    background: white;
 
     .content > .page {
       position: absolute;

@@ -69,11 +69,21 @@ export default {
         formData.append("filename", file);
       }
 
+      let mum = document.querySelector('#mum')
+      if(mum) {
+        mum.style.display = 'block'
+        setTimeout(() => {
+          mum.style.display = 'none'
+        }, 3000);
+      }
+
       u.axiosForm("/ugc/parts/reply/leave_comments", formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         }
       }).then(res => {
+        if(mum) mum.style.display = 'none'
+        
         if(!res) return
 
         this.$emit('callback')
