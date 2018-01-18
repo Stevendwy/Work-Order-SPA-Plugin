@@ -13,10 +13,12 @@
       z-img.img(v-for="(img, index) of item.imgs" :key="index"
         :src="fold ? '#' : img")
     z-view.bottom
-      z-button.rubbish(:class="{marked: haveRubbish}" @click="clickRubbish") {{rubbish}}
+      z-button.rubbish(:class="{marked: haveRubbish}" @click="clickRubbish"
+        textColor="#333") {{rubbish}}
         template(slot="left")
           z-view.icon-rubbish(:class="{marked: haveRubbish}")
-      z-button.good(:class="{marked: haveGood}" @click="clickGood") {{good}}
+      z-button.good(:class="{marked: haveGood}" @click="clickGood"
+        textColor="#333") {{good}}
         template(slot="left")
           z-view.icon-good(:class="{marked: haveGood}")
 </template>

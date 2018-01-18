@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "koala-ui": "^0.0.46"
+    "koala-ui": "^0.0.49"
   }
 }
