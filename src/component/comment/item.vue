@@ -73,6 +73,7 @@ export default {
         if (this.haveGood) {
           this.good++
           this.rubbish--
+          if(this.rubbish < 0) this.rubbish = 0
           this.haveRubbish = false
         }
         else this.good--;
@@ -91,6 +92,7 @@ export default {
         if (this.haveRubbish) {
           this.rubbish++
           this.good--
+          if(this.good < 0) this.good = 0
           this.haveGood = false
         }
         else this.rubbish--

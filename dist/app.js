@@ -12306,6 +12306,7 @@ module.exports = function escape(url) {
         if (_this.haveGood) {
           _this.good++;
           _this.rubbish--;
+          if (_this.rubbish < 0) _this.rubbish = 0;
           _this.haveRubbish = false;
         } else _this.good--;
       });
@@ -12325,6 +12326,7 @@ module.exports = function escape(url) {
         if (_this2.haveRubbish) {
           _this2.rubbish++;
           _this2.good--;
+          if (_this2.good < 0) _this2.good = 0;
           _this2.haveGood = false;
         } else _this2.rubbish--;
       });
